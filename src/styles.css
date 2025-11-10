@@ -47,14 +47,29 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 62.5%;
     --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     --font-main: "Montserrat", var(--font-stack);
+    --opacity-layer: linear-gradient(#00000033, #00000033);
 }
 
+:root.light {
+    --background-image: url("./assets/images/background.webp");
+}
 
-
-
-
-
-/* Test */
+:root.dark {
+    --background-image: url("./assets/images/background-dark.webp");
+}
+/* Layout */
 body {
-    background: red;
+    height: 100svh;
+    background: var(--opacity-layer),
+                var(--background-image);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 100% 100%;
+    display: grid;
+    align-items: center;
+    padding: 20em;
+}
+
+.app-container {
+    border: 1px solid red;
 }
