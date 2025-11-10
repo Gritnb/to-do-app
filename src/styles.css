@@ -48,18 +48,32 @@ h1, h2, h3, h4, h5, h6 {
     --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     --font-main: "Montserrat", var(--font-stack);
     --opacity-layer: linear-gradient(#00000033, #00000033);
+    --space-sm: 1em;
 }
 
 :root.light {
     --body-image: url("./assets/images/background.webp");
     --background: #E9E5DD;
     --box-shadow: 2px 2px 10px 1px #00000033;
+    --text-secondary: #ACAAA8;
+    --toggle-color: #ACAAA8;
 }
 
 :root.dark {
     --body-image: url("./assets/images/background-dark.webp");
     --background: #161616;
     --box-shadow: 2px 2px 10px 1px #00000066;
+    --text-secondary: #ACAAA8;
+    --toggle-color: #F2C138;
+}
+/* Utilities */
+.icon-small {
+    width: 25px;
+    aspect-ratio: 1;
+}
+
+.inactive {
+    display: none;
 }
 /* Layout */
 body {
@@ -87,5 +101,31 @@ body {
 }
 /* Header */
 header {
-    border-right: 1px solid red;
+    border: 1px solid red;
+    padding: var(--space-sm);
+}
+
+.logo-img {
+    width: 60px;
+    aspect-ratio: 1;
+    cursor: pointer;
+}
+
+.hero {
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero-options {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+#theme-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
 }
