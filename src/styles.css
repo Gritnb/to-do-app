@@ -36,6 +36,24 @@ h1, h2, h3, h4, h5, h6 {
     interpolate-size: allow-keywords;
   }
 }
+/* Fonts */
+@font-face {
+    font-family: "Montserrat";
+    src: url(./assets/fonts/Montserrat.ttf);
+    font-display: swap;
+}
+/* Variables */
+:root {
+    font-size: 62.5%;
+    --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    --font-main: "Montserrat", var(--font-stack);
+}
+
+
+
+
+
+
 /* Test */
 body {
     background: red;
