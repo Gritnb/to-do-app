@@ -276,7 +276,7 @@ h1 {
 
 .tasks-wrapper-scrollbar {
     min-height: 0;
-    padding-block: var(--space-m);
+    padding: var(--space-m) var(--space-xs);
     background: var(--background);
     border-radius: var(--border-radius-standard);
     box-shadow: var(--box-shadow-items);
