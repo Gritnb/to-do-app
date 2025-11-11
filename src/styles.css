@@ -32,9 +32,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  html {
-    interpolate-size: allow-keywords;
-  }
+    html {
+        interpolate-size: allow-keywords;
+    }
 }
 /* Fonts */
 @font-face {
@@ -193,10 +193,11 @@ header {
 }
 
 .nav-divider {
-    width: calc(100% - 2 * var(--space-sm));
+    width: calc(100% - 1 * var(--space-sm));
     margin: 0 auto;
     border: none;
-    border-bottom: 1px solid var(--text-secondary);
+    border-top: 1px solid var(--text-secondary);
+    margin-block: var(--space-xs);
 }
 /* My tasks */
 .task-view-wrapper {
@@ -236,4 +237,9 @@ header {
 /* Content */
 #content {
     background: var(--background-back);
+
+
+    
+    border: 1px solid red;
+
 }
