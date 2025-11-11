@@ -49,6 +49,8 @@ h1, h2, h3, h4, h5, h6 {
     --font-main: "Montserrat", var(--font-stack);
     --font-l: 1.6rem;
     --font-md: 1.4rem;
+    --font-sm: 1.2rem;
+    --font-xs: 1rem;
     --opacity-layer: linear-gradient(#00000033, #00000033);
     --space-sm: 1em;
     --space-xs: .5em;
@@ -61,17 +63,24 @@ h1, h2, h3, h4, h5, h6 {
     --body-image: url("./assets/images/background.webp");
     --background: #E9E5DD;
     --box-shadow: 2px 2px 10px 1px #00000033;
+    --box-shadow-header: 0px 0px 10px 0px #00000033;
+    --box-shadow-items: 0px 0px 5px 0px #00000033;
     --text-main: #000000;
     --text-secondary: #ACAAA8;
+    --icon-color: #ACAAA8;
     --toggle-color: #ACAAA8;
 }
 
 :root.dark {
     --body-image: url("./assets/images/background-dark.webp");
     --background: #161616;
+    --background-back: #1F1F1F;
     --box-shadow: 2px 2px 10px 1px #00000066;
+    --box-shadow-header: 0px 0px 10px 0px #000000;
+    --box-shadow-items: 0px 0px 5px 0px #00000066;
     --text-main: #E7E7E7;
     --text-secondary: #ACAAA8;
+    --icon-color: #ACAAA8;
     --toggle-color: #F2C138;
 }
 /* Utilities */
@@ -122,10 +131,11 @@ body {
 }
 /* Header */
 header {
-    border: 1px solid red;
+    box-shadow: var(--box-shadow-header);
     padding: var(--space-sm);
     display: flex;
     flex-direction: column;
+    z-index: 1;
 }
 
 .logo-img {
@@ -173,7 +183,9 @@ header {
 }
 
 .nav-btn:hover {
+    --icon-color: var(--brand-color);
     background: var(--brand-color-faded);
+    box-shadow: var(--box-shadow-items);
 }
 
 .selected {
@@ -200,8 +212,7 @@ header {
 }
 
 .fixed-height {
-    /* border: 1px solid red; */
-    height: 140px;
+    max-height: 140px;
     overflow-y: auto;
 }
 
@@ -213,4 +224,16 @@ header {
     gap: var(--space-xs);
     margin-top: auto;
     padding-inline: var(--space-sm);
+}
+
+.badge {
+    font-size: var(--font-xs);
+    line-height: 1;
+    color: var(--text-secondary);
+    border-radius: 10px;
+    padding: var(--space-xs);
+}
+/* Content */
+#content {
+    background: var(--background-back);
 }
