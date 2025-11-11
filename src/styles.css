@@ -47,11 +47,14 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 62.5%;
     --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     --font-main: "Montserrat", var(--font-stack);
+    --font-l: 1.6rem;
+    --font-md: 1.4rem;
     --opacity-layer: linear-gradient(#00000033, #00000033);
     --space-sm: 1em;
     --space-xs: .5em;
     --border-radius-standard: 10px;
-    --brand-color: #2CC1FF66;
+    --brand-color-faded: #2CC1FF66;
+    --brand-color: #2CC1FF;
 }
 
 :root.light {
@@ -75,10 +78,23 @@ h1, h2, h3, h4, h5, h6 {
 .icon-small {
     width: 25px;
     aspect-ratio: 1;
+    cursor: pointer;
 }
 
 .inactive {
     display: none;
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--text-secondary);
 }
 /* Layout */
 body {
@@ -108,6 +124,8 @@ body {
 header {
     border: 1px solid red;
     padding: var(--space-sm);
+    display: flex;
+    flex-direction: column;
 }
 
 .logo-img {
@@ -136,11 +154,13 @@ header {
 /* Navigation */
 .navigation {
     display: grid;
-    padding-block: var(--space-sm);
+    padding-top: var(--space-sm);
+    padding-bottom: var(--space-xs);
+    align-items: baseline;
 }
 
 .nav-btn {
-    font-size: 1.4rem;
+    font-size: var(--font-md);
     color: var(--text-main);
     background: transparent;
     border: 1px solid transparent;
@@ -153,9 +173,44 @@ header {
 }
 
 .nav-btn:hover {
-    background: var(--brand-color);
+    background: var(--brand-color-faded);
 }
 
 .selected {
-    background: var(--brand-color);
+    background: var(--brand-color-faded);
+}
+
+.nav-divider {
+    width: calc(100% - 2 * var(--space-sm));
+    margin: 0 auto;
+    border: none;
+    border-bottom: 1px solid var(--text-secondary);
+}
+/* My tasks */
+.task-view-wrapper {
+    padding: var(--space-sm);
+}
+
+.task-hero {
+    font-size: var(--font-l);
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.fixed-height {
+    /* border: 1px solid red; */
+    height: 140px;
+    overflow-y: auto;
+}
+
+.nav-footer {
+    font-size: var(--font-l);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-top: auto;
+    padding-inline: var(--space-sm);
 }
