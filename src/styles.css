@@ -49,12 +49,16 @@ h1, h2, h3, h4, h5, h6 {
     --font-main: "Montserrat", var(--font-stack);
     --opacity-layer: linear-gradient(#00000033, #00000033);
     --space-sm: 1em;
+    --space-xs: .5em;
+    --border-radius-standard: 10px;
+    --brand-color: #2CC1FF66;
 }
 
 :root.light {
     --body-image: url("./assets/images/background.webp");
     --background: #E9E5DD;
     --box-shadow: 2px 2px 10px 1px #00000033;
+    --text-main: #000000;
     --text-secondary: #ACAAA8;
     --toggle-color: #ACAAA8;
 }
@@ -63,6 +67,7 @@ h1, h2, h3, h4, h5, h6 {
     --body-image: url("./assets/images/background-dark.webp");
     --background: #161616;
     --box-shadow: 2px 2px 10px 1px #00000066;
+    --text-main: #E7E7E7;
     --text-secondary: #ACAAA8;
     --toggle-color: #F2C138;
 }
@@ -93,7 +98,7 @@ body {
     width: 75%;
     margin: 0 auto;
     background: var(--background);
-    border-radius: 10px;
+    border-radius: var(--border-radius-standard);
     box-shadow: var(--box-shadow);
     display: grid;
     grid-template-columns: 1fr 4fr;
@@ -112,7 +117,6 @@ header {
 }
 
 .hero {
-    border: 1px solid red;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -128,4 +132,30 @@ header {
     background: transparent;
     border: none;
     cursor: pointer;
+}
+/* Navigation */
+.navigation {
+    display: grid;
+    padding-block: var(--space-sm);
+}
+
+.nav-btn {
+    font-size: 1.4rem;
+    color: var(--text-main);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--border-radius-standard);
+    padding: var(--space-xs) var(--space-sm);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.nav-btn:hover {
+    background: var(--brand-color);
+}
+
+.selected {
+    background: var(--brand-color);
 }
