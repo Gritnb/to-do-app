@@ -167,6 +167,7 @@ header {
     padding-top: var(--space-sm);
     padding-bottom: var(--space-xs);
     align-items: baseline;
+    gap: 3px;
 }
 
 .nav-btn {
