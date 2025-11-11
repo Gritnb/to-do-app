@@ -47,11 +47,14 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 62.5%;
     --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     --font-main: "Montserrat", var(--font-stack);
+    --font-xxl: 3rem;
     --font-l: 1.6rem;
     --font-md: 1.4rem;
     --font-sm: 1.2rem;
     --font-xs: 1rem;
     --opacity-layer: linear-gradient(#00000033, #00000033);
+    --space-l: 2em;
+    --space-m: 1.5em;
     --space-sm: 1em;
     --space-xs: .5em;
     --border-radius-standard: 10px;
@@ -190,6 +193,7 @@ header {
 }
 
 .selected {
+    --icon-color: var(--brand-color);
     background: var(--brand-color-faded);
 }
 
@@ -238,8 +242,35 @@ header {
 /* Content */
 #content {
     background: var(--background-back);
+    padding: var(--space-l);
+}
 
+.pending-tasks-container {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: var(--space-sm);
+}
 
-    
-    border: 1px solid red;
+.pending-header {
+    background: var(--background);
+    border-radius: var(--border-radius-standard);
+    box-shadow: var(--box-shadow-items);
+    padding: var(--space-xs) var(--space-m);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+.tasks-wrapper {
+    background: var(--background);
+    border-radius: var(--border-radius-standard);
+    box-shadow: var(--border-radius-standard);
+    padding: var(--space-xs) var(--space-m);
 }

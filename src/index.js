@@ -11,7 +11,10 @@ import today from "./pages/today"
 
     // Listeners
     // TESTER
-    window.addEventListener('load', today)
+    window.addEventListener('load', () => {
+        todayButton.classList.add("selected")
+        today()
+    })
     // TESTER
     theme.addEventListener('click', changeTheme)
     navItems.forEach(item => {
