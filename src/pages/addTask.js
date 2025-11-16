@@ -1,5 +1,5 @@
 import handleClear from "../handlers/handleClear"
-import handleAdd from "../handlers/handleAdd"
+import handleForm from "../handlers/handleForm"
 
 export default function addTask() {
     const content = document.getElementById("content")
@@ -167,13 +167,15 @@ export default function addTask() {
     buttonsField.className = "form-buttons"
 
     const clearButton = document.createElement("button")
+    clearButton.type = "reset"
     clearButton.className = "form-btn clear-btn"
     clearButton.textContent = "Clear"
 
     const addButton = document.createElement("button")
+    addButton.type = "submit"
     addButton.className = "form-btn submit-btn"
     addButton.textContent = "Add Task"
-
+    
     buttonsField.append(clearButton)
     buttonsField.append(addButton)
 
@@ -187,5 +189,5 @@ export default function addTask() {
     content.append(form)
 
     clearButton.addEventListener('click', handleClear)
-    addButton.addEventListener('click', handleAdd)
+    form.addEventListener('submit', handleForm)
 }
