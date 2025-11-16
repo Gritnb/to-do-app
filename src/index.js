@@ -1,29 +1,23 @@
 import "./styles.css"
 import changeTheme from "./utils/changeTheme"
-import today from "./pages/today"
+import addTask from "./pages/addTask.js"
 
 (function display() {
     // Hooks
     const content = document.getElementById("content")
     const theme = document.getElementById("theme-button")
     const navItems = Array.from(document.querySelectorAll(".nav-btn"))
-    const todayButton = document.getElementById("view-today")
-
+    const newTask = document.getElementById('new-todo')
     // Listeners
-    // TESTER
-    window.addEventListener('load', () => {
-        todayButton.classList.add("selected")
-        today()
-    })
-    // TESTER
     theme.addEventListener('click', changeTheme)
     navItems.forEach(item => {
         item.classList.remove("selected")
     })
-
-    todayButton.addEventListener('click', (event) => {
-        event.currentTarget.classList.add("selected")
-        today()
+ 
+    // TESTER
+    window.addEventListener('load', () => {
+        newTask.classList.add("selected")
+        addTask()
     })
 })()
 

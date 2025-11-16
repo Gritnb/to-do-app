@@ -251,68 +251,78 @@ header {
     background: var(--background-back);
     padding: var(--space-l);
 }
-
-.pending-tasks-container {
-    height: 100%;
-    display: grid;
-    grid-template-rows: auto 1fr;
-    gap: var(--space-sm);
-}
-
-.pending-header {
+/* Form */
+form {
     background: var(--background);
     border-radius: var(--border-radius-standard);
-    box-shadow: var(--box-shadow-items);
-    padding: var(--space-xs) var(--space-m);
+    padding: var(--space-l);
+    color: var(--text-main);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: var(--space-l);
 }
 
 h1 {
-    font-size: 3rem;
-    font-weight: 500;
-    color: var(--text-main);
+    font-size: var(--font-xxl);
+    font-weight: 300;
 }
 
-.tasks-wrapper-scrollbar {
-    min-height: 0;
-    padding: var(--space-m) var(--space-xs);
-    background: var(--background);
-    border-radius: var(--border-radius-standard);
-    box-shadow: var(--box-shadow-items);
-}
-
-.tasks-wrapper {
-    height: 100%;
-    padding: var(--space-xs) var(--space-m);
-    overflow-y: auto;
-}
-
-.task {
-    background: var(--background-back);
-    border-radius: var(--border-radius-standard);
-    border: none;
-    padding: var(--space-m);
-    box-shadow: var(--box-shadow);
-    color: var(--text-main);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.task-name {
+label {
     font-size: var(--font-l);
-    font-weight: 400;
-}
-
-.expand-button {
-    background: transparent;
-    border: none;
     cursor: pointer;
 }
 
-.task-extended {
-    display: none;
-    height: 0;
+.required {
+    color: var(--brand-color);
 }
+/* Title */
+.title-field {
+    width: 50%;
+    border: none;
+    display: flex;
+}
+
+#task-title {
+    font-size: var(--font-l);
+    color: var(--text-main);
+    background: transparent;
+    border: none;
+}
+
+#task-title:active,
+#task-title:focus {
+    border: none;
+    outline: none;
+}
+
+#task-title::placeholder {
+    color: var(--text-main);
+}
+
+label:hover {
+    --icon-color: var(--brand-color);
+}
+/* Description */
+.vertical-fields {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    border: none;
+}
+
+textarea {
+    box-sizing: content-box;
+    font-size: var(--font-md);
+    color: var(--text-main);
+    background-color: var(--background-back);
+    border: 1px solid var(--brand-color-faded);
+    height: 3lh;
+    resize: none;
+    padding: var(--space-sm);
+}
+
+textarea:focus,
+textarea:active {
+    outline: none;
+}
+/* Priority */

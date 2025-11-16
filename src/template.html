@@ -133,37 +133,37 @@
                 </div>
             </header>
             <div id="content">
-                <div class="pending-tasks-container">
-                    <div class="pending-header">
-                        <h1>Today</h1>
-                        <p>sort</p>
-                    </div>
-                    <div class="tasks-wrapper-scrollbar">
-                        <div class="tasks-wrapper">
-                            <div class="task">
-                                <div class="task-info">
-                                    <h2 class="task-name">Title</h2>
-                                    <p>Description</p>
-                                    <p>Urgent!</p>
-                                    <p>Time</p>
-                                    <div class="task-extended">
-                                        <p>test</p>
-                                        <p>test</p> 
-                                    </div>
-                                </div>
-                                <button class="expand-button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" 
-                                         viewBox="0 0 24 24"
-                                         class="icon-small">
-                                         <title>Expand</title>
-                                         <path fill="var(--icon-color)"
-                                               d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <form class="new-task">
+                    <h1>New Task!</h1>
+                    <fieldset class="title-field">
+                        <input type="text" 
+                               id="task-title"
+                               name="task-title"
+                               minlength="3"
+                               maxlength="24"
+                               placeholder="New Task"
+                               autocomplete="off"
+                               required>
+                        <label for="task-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" 
+                                 viewBox="0 0 24 24"
+                                 class="icon-small">
+                                 <title>Edit</title>
+                                 <path fill="var(--icon-color)"
+                                       d="M5,3C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19H5V5H12V3H5M17.78,4C17.61,4 17.43,4.07 17.3,4.2L16.08,5.41L18.58,7.91L19.8,6.7C20.06,6.44 20.06,6 19.8,5.75L18.25,4.2C18.12,4.07 17.95,4 17.78,4M15.37,6.12L8,13.5V16H10.5L17.87,8.62L15.37,6.12Z" />
+                            </svg>
+                        </label>
+                    </fieldset>
+                    <fieldset class="vertical-fields">
+                        <label for="task-description">Description<span class="required"> *</span></label>
+                        <textarea id="task-description"
+                                  name="description"></textarea>
+                    </fieldset>
+                    <fieldset class="vertical-fields">
+                        <label>Priority<span class="required"> *</span></label>
+                        
+                    </fieldset>
+                </form>
             </div>
         </div>
     </body>
