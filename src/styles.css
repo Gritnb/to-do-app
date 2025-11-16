@@ -63,8 +63,10 @@ h1, h2, h3, h4, h5, h6 {
     --space-xs: .5em;
     --border-radius-standard: 10px;
     --border-radius-badge: 5px;
-    --brand-color-faded: #2CC1FF66;
     --brand-color: #2CC1FF;
+    --brand-color-faded: #2CC1FF66;
+    --error-color: #DC143C;
+    --error-color-faded: #DC143C66;
 }
 
 :root.light {
@@ -288,6 +290,7 @@ label {
     color: var(--text-main);
     background: transparent;
     border: none;
+    padding-left: 10px;
 }
 
 #task-title:active,
@@ -346,6 +349,7 @@ input[type="datetime-local"]:active {
     padding: 0 var(--space-xs);
     font-weight: 600;
     letter-spacing: -.8px;
+    user-select: none;
 }
 
 .radio-btn {
@@ -414,5 +418,42 @@ input[type="datetime-local"] {
     &::-webkit-calendar-picker-indicator {
         cursor: pointer;
     }
+}
+/* Buttons */
+.form-buttons {
+    box-sizing: content-box;
+    width: 50%;
+    font-size: var(--font-md);
+    padding: var(--space-sm);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-l);
+    
+}
 
+.form-btn {
+    width: 20%;
+    color: var(--text-main);
+    border: 1px solid transparent;
+    padding: var(--space-xs) var(--space-m);
+    cursor: pointer;
+    transition: .1s ease-in;
+}
+
+.clear-btn {
+    background: var(--error-color-faded);
+}
+
+.submit-btn {
+    background: var(--brand-color-faded);
+}
+
+.clear-btn:hover {
+    background: var(--error-color);
+}
+
+.submit-btn:hover {
+    background: var(--brand-color);
+    color: black;
 }

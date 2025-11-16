@@ -134,16 +134,8 @@
             </header>
             <div id="content">
                 <form class="new-task">
-                    <h1>New Task!</h1>
+                    <h1>New Task</h1>
                     <fieldset class="title-field">
-                        <input type="text" 
-                               id="task-title"
-                               name="title"
-                               minlength="3"
-                               maxlength="24"
-                               placeholder="New Task"
-                               autocomplete="off"
-                               required>
                         <label for="task-title">
                             <svg xmlns="http://www.w3.org/2000/svg" 
                                  viewBox="0 0 24 24"
@@ -153,6 +145,14 @@
                                        d="M5,3C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19H5V5H12V3H5M17.78,4C17.61,4 17.43,4.07 17.3,4.2L16.08,5.41L18.58,7.91L19.8,6.7C20.06,6.44 20.06,6 19.8,5.75L18.25,4.2C18.12,4.07 17.95,4 17.78,4M15.37,6.12L8,13.5V16H10.5L17.87,8.62L15.37,6.12Z" />
                             </svg>
                         </label>
+                        <input type="text" 
+                               id="task-title"
+                               name="title"
+                               minlength="3"
+                               maxlength="24"
+                               placeholder="Title"
+                               autocomplete="off"
+                               required>
                     </fieldset>
                     <fieldset class="vertical-fields">
                         <label for="task-description">
@@ -161,8 +161,7 @@
                         <textarea id="task-description"
                                   name="description"
                                   autocomplete="off"
-                                  required>
-                        </textarea>
+                                  required></textarea>
                     </fieldset>
                     <fieldset class="vertical-fields">
                         <label for="task-prio">
@@ -210,6 +209,10 @@
                                name="date"
                                required>
                     </fieldset>
+                    <div class="form-buttons">
+                        <button class="form-btn clear-btn">Clear</button>
+                        <button class="form-btn submit-btn">Submit</button>
+                    </div>
                 </form>
             </div>
         </div>
