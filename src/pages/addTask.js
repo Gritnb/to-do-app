@@ -1,3 +1,6 @@
+import handleClear from "../handlers/handleClear"
+import handleAdd from "../handlers/handleAdd"
+
 export default function addTask() {
     const content = document.getElementById("content")
     content.innerHTML = ``
@@ -182,4 +185,7 @@ export default function addTask() {
     form.append(buttonsField)
 
     content.append(form)
+
+    clearButton.addEventListener('click', handleClear)
+    addButton.addEventListener('click', handleAdd)
 }
