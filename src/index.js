@@ -13,12 +13,15 @@ import addTask from "./pages/addTask.js"
     navItems.forEach(item => {
         item.classList.remove("selected")
     })
- 
-    // TESTER
-    window.addEventListener('load', () => {
+    newTask.addEventListener('click', () => {
         newTask.classList.add("selected")
         addTask()
     })
+    // TESTER
+    // window.addEventListener('load', () => {
+    //     newTask.classList.add("selected")
+    //     addTask()
+    // })
 })()
 
 
