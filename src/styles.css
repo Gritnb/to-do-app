@@ -345,7 +345,6 @@ input[type="datetime-local"]:active {
     display: flex;
     align-items: center;
     position: relative;
-    border-radius: var(--border-radius-badge);
     padding: 0 var(--space-xs);
     font-weight: 600;
     letter-spacing: -.8px;
@@ -362,7 +361,6 @@ input[type="datetime-local"]:active {
 .checkmark {
     position: absolute;
     background: #FFFFFF70;
-    border-radius: var(--border-radius-badge);
     top: 0%;
     left: 0%;
     width: 100%;
@@ -374,7 +372,6 @@ input[type="datetime-local"]:active {
 .radio .radio-btn:checked ~ .checkmark {
     top: 0%;
     border: 1px solid transparent;
-    border-radius: var(--border-radius-badge);
     background: transparent;
     z-index: 1;
     opacity: 1;
