@@ -301,16 +301,18 @@ h1 {
     align-items: center;
 }
 
-
-
 .task-name {
     font-size: var(--font-l);
     font-weight: 400;
 }
 
-
 .expand-button {
     background: transparent;
     border: none;
     cursor: pointer;
+}
+
+.task-extended {
+    display: none;
+    height: 0;
 }
