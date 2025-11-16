@@ -324,7 +324,9 @@ textarea {
 }
 
 textarea:focus,
-textarea:active {
+textarea:active,
+input[type="datetime-local"]:focus,
+input[type="datetime-local"]:active {
     outline: none;
 }
 /* Priority */
@@ -396,4 +398,21 @@ textarea:active {
     background: #F8B4B4;
     color: #771D1D;
     border: 1px solid #771D1D;
+}
+/* Date */
+input[type="datetime-local"] {
+    box-sizing: content-box;
+    width: 50%;
+    font-size: var(--font-md);
+    color: var(--font-main);
+    letter-spacing: 1.5px;
+    background: var(--background-back);
+    border: 1px solid var(--brand-color-faded);
+    padding: var(--space-sm);
+    cursor: pointer;
+
+    &::-webkit-calendar-picker-indicator {
+        cursor: pointer;
+    }
+
 }

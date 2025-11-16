@@ -173,7 +173,6 @@
                                 <input type="radio"
                                        class="radio-btn"
                                        name="priotity"
-                                       id="priority"
                                        value='low'
                                        checked/>
                                 <span class="checkmark"></span>
@@ -182,7 +181,7 @@
                                 <input type="radio"
                                        class="radio-btn"
                                        name="priotity"
-                                       id="priority"
+
                                        value='normal'/>
                                 <span class="checkmark"></span>
                             </label>
@@ -190,7 +189,6 @@
                                 <input type="radio"
                                        class="radio-btn"
                                        name="priotity"
-                                       id="priority"
                                        value='high'/>
                                 <span class="checkmark"></span>
                             </label>
@@ -198,11 +196,19 @@
                                 <input type="radio"
                                        class="radio-btn"
                                        name="priotity"
-                                       id="priority"
                                        value='urgent'/>
                                 <span class="checkmark"></span>
                             </label>
                         </div>
+                    </fieldset>
+                    <fieldset class="vertical-fields">
+                        <label for="task-date">Due Date
+                            <span class="required"> *</span>
+                        </label>
+                        <input type="datetime-local"
+                               id="task-date"
+                               name="date"
+                               required>
                     </fieldset>
                 </form>
             </div>
