@@ -138,7 +138,7 @@
                     <fieldset class="title-field">
                         <input type="text" 
                                id="task-title"
-                               name="task-title"
+                               name="title"
                                minlength="3"
                                maxlength="24"
                                placeholder="New Task"
@@ -155,13 +155,54 @@
                         </label>
                     </fieldset>
                     <fieldset class="vertical-fields">
-                        <label for="task-description">Description<span class="required"> *</span></label>
+                        <label for="task-description">
+                            Description<span class="required"> *</span>
+                        </label>
                         <textarea id="task-description"
-                                  name="description"></textarea>
+                                  name="description"
+                                  autocomplete="off"
+                                  required>
+                        </textarea>
                     </fieldset>
                     <fieldset class="vertical-fields">
-                        <label>Priority<span class="required"> *</span></label>
-                        
+                        <label for="task-prio">
+                            Priority<span class="required"> *</span>
+                        </label>
+                        <div class="prio-buttons">
+                            <label class="radio low-badge">Low
+                                <input type="radio"
+                                       class="radio-btn"
+                                       name="priotity"
+                                       id="priority"
+                                       value='low'
+                                       checked/>
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radio normal-badge">Normal
+                                <input type="radio"
+                                       class="radio-btn"
+                                       name="priotity"
+                                       id="priority"
+                                       value='normal'/>
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radio high-badge">High
+                                <input type="radio"
+                                       class="radio-btn"
+                                       name="priotity"
+                                       id="priority"
+                                       value='high'/>
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radio urgent-badge">Urgent
+                                <input type="radio"
+                                       class="radio-btn"
+                                       name="priotity"
+                                       id="priority"
+                                       value='urgent'/>
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
                     </fieldset>
                 </form>
             </div>
