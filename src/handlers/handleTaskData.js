@@ -1,9 +1,8 @@
-import Todo from "../factories/todo"
+import Task from "../factories/task"
 import userData from "../userData/userData"
 
 export default function handleTaskData(title, description, priority, date) {
-    const newTodo = new Todo(title, description, priority, date)
-    userData.addTask(newTodo)
+    const newTask = new Task(title, description, priority, date)
+    userData.addTask(newTask)
     console.log(userData.data)
 }
-
