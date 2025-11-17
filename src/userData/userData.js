@@ -1,10 +1,17 @@
-export default (function userData() {
+function userData() {
     const data = {
         projects: [],
         tasks: [],
     }
 
-    const addTask = task => data.tasks.push(task)
+    const addTask = task => {
+        data.tasks.push(task)
+        localStorage.setItem("datafortodoapp", JSON.stringify(data))
+    }
 
     return { data, addTask }
-})()
+}
+
+const user = new userData()
+
+export { user }

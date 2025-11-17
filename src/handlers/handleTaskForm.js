@@ -1,4 +1,5 @@
 import handleTaskData from "./handleTaskData"
+import displayMyTasks from "../sidebar/myTasks"
 
 export default function handleForm(event) {
     event.preventDefault()
@@ -9,4 +10,5 @@ export default function handleForm(event) {
     const date = data.get("date")
     handleTaskData(title, description, priority, date)
     event.target.reset()
+    displayMyTasks()
 }
