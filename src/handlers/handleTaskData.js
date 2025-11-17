@@ -3,7 +3,7 @@ import userData from "../userData/userData"
 
 export default function handleTaskData(title, description, priority, date) {
     const newTodo = new Todo(title, description, priority, date)
-    userData.add(newTodo)
+    userData.addTask(newTodo)
     console.log(userData.data)
 }
 

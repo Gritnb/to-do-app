@@ -1,7 +1,10 @@
 export default (function userData() {
-    const data = []
+    const data = {
+        projects: [],
+        tasks: [],
+    }
 
-    const add = (todo) => data.push(todo)
+    const addTask = task => data.tasks.push(task)
 
-    return { data, add }
+    return { data, addTask }
 })()
