@@ -7,6 +7,6 @@ export default function handleForm(event) {
     const description = data.get("description")
     const priority = data.get("priority")
     const date = data.get("date")
-    
+    handleTaskData(title, description, priority, date)
     event.target.reset()
 }
