@@ -237,6 +237,7 @@ header {
 }
 
 .task-element {
+    width: 95%;
     font-size: var(--font-sm);
     color: var(--text-main);
     background: transparent;

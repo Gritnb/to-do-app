@@ -13,14 +13,15 @@ import syncData from "./userData/syncData.js"
     if (JSON.parse(localStorage.getItem("datafortodoapp"))) {
         user.setData(JSON.parse(localStorage.getItem("datafortodoapp")))
         syncData()
+        // VIEW TODAY IF TASK EXIST ELSE MESSAGE 'NOTHING TO DO TODAY'
     } else {
         user.addTask(welcome)
+        window.addEventListener("DOMContentLoaded", () => {
+            displayTask(document.getElementById(welcome.id))
+        })
     }
     displayMyTasks()
-    // Initial view
-    window.addEventListener("DOMContentLoaded", () => {
-        displayTask(document.getElementById(welcome.id))
-    })
+
     // Hooks
     const theme = document.getElementById("theme-button")
     const navItems = Array.from(document.querySelectorAll(".nav-btn"))
