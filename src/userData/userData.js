@@ -13,9 +13,8 @@ function userData() {
         data.projects = storage.projects || []
     }
 
-    return { data, addTask, setData }
+    return { data, setData, addTask }
 }
-
 
 const user = new userData()
 
