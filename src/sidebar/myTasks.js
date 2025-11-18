@@ -1,5 +1,6 @@
 import { user } from "../userData/userData"
 import { colors } from "../utils/colors"
+import displayTask from "./displayTask"
 
 export default function displayMyTasks() {
     const numberOfTasks = document.getElementById('total-tasks')
@@ -22,8 +23,12 @@ export default function displayMyTasks() {
         taskTitle.textContent = `${task.title}`
         taskTitle.prepend(hash)
 
+        taskTitle.addEventListener('click', (event) => {
+            displayTask(event.target)
+        })
+
         taskSelector.append(taskTitle)
     })
-    
+
     numberOfTasks.textContent = `${tasks.length}` || ``
 }

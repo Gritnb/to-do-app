@@ -4,6 +4,8 @@ function userData() {
         projects: [],
     }
 
+    const getTask = id => data.tasks.filter(target => target.id === id)[0]
+
     const addTask = task => {
         data.tasks.push(task)
     }
@@ -13,7 +15,7 @@ function userData() {
         data.projects = storage.projects || []
     }
 
-    return { data, setData, addTask }
+    return { data, setData, getTask, addTask }
 }
 
 const user = new userData()

@@ -476,3 +476,8 @@ input[type="datetime-local"] {
     background: var(--brand-color);
     color: black;
 }
+
+.selected {
+    --icon-color: var(--brand-color);
+    background: var(--brand-color-faded);
+}
