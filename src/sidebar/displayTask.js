@@ -1,3 +1,4 @@
+import { isToday } from "date-fns";
 import { user } from "../userData/userData.js"
 
 export default function displayTask(task) {
@@ -30,7 +31,10 @@ export default function displayTask(task) {
 
     const taskDate = document.createElement("span")
     taskDate.className = "single-date"
-    taskDate.textContent = `${taskToDisplay.date}`
+    taskDate.textContent = `${isToday(taskToDisplay.date)
+        ? `Today!`
+        : taskToDisplay.date
+    }`
 
     const taskPriority = document.createElement("span")
     taskPriority.className = `badge ${taskToDisplay.priority}-badge`

@@ -158,6 +158,8 @@ export default function addTask() {
     dateInput.type = "datetime-local"
     dateInput.id = "task-date"
     dateInput.name = "date"
+    dateInput.min = "1900-01-01T16:30"
+    dateInput.max = "9999-12-30T16:30"
     dateInput.required = true
 
     dateField.append(dateLabel)
