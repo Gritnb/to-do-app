@@ -245,7 +245,7 @@ header {
 }
 
 .task-element:hover {
-    background: var(--background-back);
+    background: var(--brand-color-faded);
 }
 
 .hash {
@@ -489,7 +489,7 @@ input[type="datetime-local"] {
     color: var(--text-main);
 }
 
-.single-devider {
+.single-divider {
     width: 60%;
     border: none;
     border-bottom: 1px solid var(--brand-color-faded);
@@ -498,5 +498,17 @@ input[type="datetime-local"] {
 
 .single-description {
     font-size: var(--font-l);
+}
 
+.single-misc {
+    width: 60%;
+    display: flex;
+    gap: var(--space-l);
+}
+
+.single-date {
+    font-size: var(--font-md);
+    font-weight: 200;
+    font-style: italic;
+    color: lime;
 }
