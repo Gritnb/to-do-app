@@ -509,13 +509,13 @@ input[type="datetime-local"] {
 .single-misc {
     width: 60%;
     display: flex;
+    align-items: center;
     gap: var(--space-l);
 }
 
 .single-date {
     font-size: var(--font-md);
     font-weight: 400;
-    font-style: italic;
     color: var(--text-main);
 }
 
@@ -525,4 +525,29 @@ input[type="datetime-local"] {
 
 .rest {
     color: var(--neutral);
+}
+
+.misc-btn-container {
+    margin-left: auto;
+    display: flex;
+    gap: var(--space-m);
+}
+
+.misc-btn {
+    background: transparent;
+    border: none;
+    opacity: .7;
+    transition: .1s ease-in;
+}
+
+.delete-task {
+    --icon-color: var(--error-color);
+}
+
+.complete-task {
+    --icon-color: var(--positive);
+}
+
+.misc-btn:hover {
+    opacity: 1;
 }

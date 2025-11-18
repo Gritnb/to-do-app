@@ -10,12 +10,17 @@ function userData() {
         data.tasks.push(task)
     }
 
+    const removeTask = id => {
+        const index = data.tasks.findIndex(item => item.id === id)
+        data.tasks.splice(index, 1)
+    }
+
     const setData = storage => {
         data.tasks = storage.tasks || []
         data.projects = storage.projects || []
     }
 
-    return { data, setData, getTask, addTask }
+    return { data, setData, getTask, addTask, removeTask }
 }
 
 const user = new userData()

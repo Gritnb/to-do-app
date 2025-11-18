@@ -30,5 +30,5 @@ export default function displayMyTasks() {
         taskSelector.append(taskTitle)
     })
 
-    numberOfTasks.textContent = `${tasks.length}` || ``
+    numberOfTasks.textContent = `${tasks.length > 0 ? tasks.length : ""}`
 }
