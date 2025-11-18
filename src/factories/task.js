@@ -1,4 +1,4 @@
-export default function Todo(title, description, priority, date) {
+export default function Task(title, description, priority, date) {
     return {
         id: crypto.randomUUID(),
         title,

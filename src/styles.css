@@ -481,3 +481,22 @@ input[type="datetime-local"] {
     --icon-color: var(--brand-color);
     background: var(--brand-color-faded);
 }
+/* Single Task */
+.single-task {
+    background: var(--background);
+    border-radius: var(--border-radius-standard);
+    padding: var(--space-l);
+    color: var(--text-main);
+}
+
+.single-devider {
+    width: 60%;
+    border: none;
+    border-bottom: 1px solid var(--brand-color-faded);
+    margin-block: var(--space-m);
+}
+
+.single-description {
+    font-size: var(--font-l);
+
+}

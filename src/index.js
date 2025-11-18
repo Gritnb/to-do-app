@@ -1,4 +1,5 @@
 import "./styles.css"
+import { welcome } from "./utils/welcome.js"
 import changeTheme from "./utils/changeTheme"
 import addTask from "./pages/addTask.js"
 import { user } from "./userData/userData.js"
@@ -8,6 +9,9 @@ import displayMyTasks from "./sidebar/myTasks.js"
 (function display() {
     if (JSON.parse(localStorage.getItem("datafortodoapp"))) {
         user.setData(JSON.parse(localStorage.getItem("datafortodoapp")))
+        displayMyTasks()
+    } else {
+        user.addTask(welcome)
         displayMyTasks()
     }
     // Hooks

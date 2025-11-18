@@ -10,6 +10,8 @@ export default function displayTask(task) {
 
     const taskToDisplay = user.getTask(task.id)
     
-    console.log(taskToDisplay)
-    
+    const container = document.createElement("div")
+    container.className = "single-task"
+
+    content.append(container)
 }
