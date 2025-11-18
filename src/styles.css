@@ -80,6 +80,8 @@ h1, h2, h3, h4, h5, h6 {
     --text-secondary: #ACAAA8;
     --icon-color: #ACAAA8;
     --toggle-color: #ACAAA8;
+    --positive: #004D00;
+    --neutral: #FF8000;
 }
 
 :root.dark {
@@ -93,6 +95,8 @@ h1, h2, h3, h4, h5, h6 {
     --text-secondary: #ACAAA8;
     --icon-color: #ACAAA8;
     --toggle-color: #F2C138;
+    --positive: lime;
+    --neutral: #FFBB00;
 }
 /* Utilities */
 .icon-small {
@@ -497,7 +501,9 @@ input[type="datetime-local"] {
 }
 
 .single-description {
+    width: 50%;
     font-size: var(--font-l);
+    white-space: pre-line;
 }
 
 .single-misc {
@@ -508,7 +514,15 @@ input[type="datetime-local"] {
 
 .single-date {
     font-size: var(--font-md);
-    font-weight: 200;
+    font-weight: 400;
     font-style: italic;
-    color: lime;
+    color: var(--text-main);
+}
+
+.today {
+    color: var(--positive);
+}
+
+.rest {
+    color: var(--neutral);
 }

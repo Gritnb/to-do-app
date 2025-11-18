@@ -9,11 +9,10 @@ import displayMyTasks from "./sidebar/myTasks.js"
 (function display() {
     if (JSON.parse(localStorage.getItem("datafortodoapp"))) {
         user.setData(JSON.parse(localStorage.getItem("datafortodoapp")))
-        displayMyTasks()
     } else {
         user.addTask(welcome)
-        displayMyTasks()
     }
+    displayMyTasks()
     // Hooks
     // const content = document.getElementById("content")
     const theme = document.getElementById("theme-button")

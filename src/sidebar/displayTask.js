@@ -29,10 +29,14 @@ export default function displayTask(task) {
     const infoContainer = document.createElement("div")
     infoContainer.className = "single-misc"
 
+    const due = document.createElement("span")
+    due.className = "single-date"
+    due.textContent = "Due: "
+
     const taskDate = document.createElement("span")
-    taskDate.className = "single-date"
+    taskDate.className = `single-date ${isToday(taskToDisplay.date) ? "today" : "rest"}`
     taskDate.textContent = `${isToday(taskToDisplay.date)
-        ? `Today!`
+        ? `Today`
         : taskToDisplay.date
     }`
 
@@ -42,6 +46,7 @@ export default function displayTask(task) {
         taskToDisplay.priority[0].toUpperCase() +
         taskToDisplay.priority.slice(1).toLowerCase()
 
+    taskDate.prepend(due)
     infoContainer.append(taskDate)
     infoContainer.append(taskPriority)
 
