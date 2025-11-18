@@ -1,4 +1,4 @@
-import { add, isToday } from "date-fns";
+import { isToday } from "date-fns";
 import { user } from "../userData/userData.js"
 import syncData from "../userData/syncData.js";
 import displayMyTasks from "./myTasks.js";
@@ -11,7 +11,7 @@ export default function displayTask(task) {
     const otherTasks = Array.from(document.querySelectorAll('.task-element'))
     otherTasks.forEach(task => task.classList.remove("selected"))
     task.classList.add("selected")
-
+    
     const taskToDisplay = user.getTask(task.id)
 
     const taskDivider = document.createElement("hr")
