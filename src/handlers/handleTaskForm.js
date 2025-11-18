@@ -1,3 +1,4 @@
+import { format, parseISO } from "date-fns";
 import handleTaskData from "./handleTaskData"
 import displayMyTasks from "../sidebar/myTasks"
 
@@ -7,8 +8,9 @@ export default function handleForm(event) {
     const title = data.get("title")
     const description = data.get("description")
     const priority = data.get("priority")
-    const date = data.get("date")
-    handleTaskData(title, description, priority, date)
+    const date = parseISO(data.get("date"))
+    const dateFormatted = format(date, "dd MMMM yyyy HH:mm")
+    handleTaskData(title, description, priority, dateFormatted)
     event.target.reset()
     displayMyTasks()
 }
