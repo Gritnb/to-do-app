@@ -229,17 +229,36 @@ header {
 .fixed-height {
     max-height: 140px;
     overflow-y: auto;
+    padding-inline-start: var(--space-m);
+}
+
+/* .task-element {
     font-size: var(--font-sm);
     color: var(--text-main);
     padding-left: var(--space-m);
-}
-
-.task-element {
+    background: transparent;
+    border: none;
     display: flex;
     align-items: center;
     gap: 5px;
     line-height: 1.1;
     cursor: pointer;
+} */
+
+.task-element {
+    font-size: var(--font-sm);
+    color: var(--text-main);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--border-radius-badge);
+    text-align: start;
+    line-height: 1.1;
+    cursor: pointer;
+    padding: 1px 2px;
+}
+
+.task-element:hover {
+    background: var(--background-back);
 }
 
 .hash {

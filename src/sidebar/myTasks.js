@@ -10,7 +10,7 @@ export default function displayMyTasks() {
     numberOfTasks.textContent = ``
 
     tasks.forEach(task => {
-        const taskTitle = document.createElement('p')
+        const taskTitle = document.createElement('button')
         taskTitle.className = "task-element"
 
         const hash = document.createElement('span')
