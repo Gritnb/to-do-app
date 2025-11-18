@@ -1,15 +1,21 @@
 function userData() {
-    const data = {
-        projects: [],
+    let data = {
         tasks: [],
+        projects: [],
     }
 
     const addTask = task => {
         data.tasks.push(task)
     }
 
-    return { data, addTask }
+    const setData = storage => {
+        data.tasks = storage.tasks || []
+        data.projects = storage.projects || []
+    }
+
+    return { data, addTask, setData }
 }
+
 
 const user = new userData()
 
