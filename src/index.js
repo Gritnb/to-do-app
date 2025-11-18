@@ -2,6 +2,8 @@ import "./styles.css"
 import changeTheme from "./utils/changeTheme"
 import addTask from "./pages/addTask.js"
 
+console.log("Launched")
+
 (function display() {
     // Hooks
     // const content = document.getElementById("content")
@@ -20,18 +22,4 @@ import addTask from "./pages/addTask.js"
         addTask()
     })
 
-    
-
-
-    // TESTER
-    // window.addEventListener('load', () => {
-    //     newTask.classList.add("selected")
-    //     addTask()
-    // })
 })()
-
-
-// console.log('works')
-// const todo1 = Todo('First', 'Your First Task', '12-04-2025', 'Important', ['1', '2', '3'])
-
-// console.log(todo1)

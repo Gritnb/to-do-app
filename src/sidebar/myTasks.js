@@ -12,6 +12,7 @@ export default function displayMyTasks() {
     tasks.forEach(task => {
         const taskTitle = document.createElement('button')
         taskTitle.className = "task-element"
+        taskTitle.id = task.id
 
         const hash = document.createElement('span')
         hash.className = "hash"
@@ -23,6 +24,6 @@ export default function displayMyTasks() {
 
         taskSelector.append(taskTitle)
     })
-
+    
     numberOfTasks.textContent = `${tasks.length}` || ``
 }

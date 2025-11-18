@@ -232,19 +232,6 @@ header {
     padding-inline-start: var(--space-m);
 }
 
-/* .task-element {
-    font-size: var(--font-sm);
-    color: var(--text-main);
-    padding-left: var(--space-m);
-    background: transparent;
-    border: none;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    line-height: 1.1;
-    cursor: pointer;
-} */
-
 .task-element {
     font-size: var(--font-sm);
     color: var(--text-main);
