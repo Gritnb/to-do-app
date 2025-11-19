@@ -15,6 +15,11 @@ function userData() {
         data.tasks[index].title = title
     }
 
+    const changeTaskDescription = (id, description) => {
+        const index = data.tasks.findIndex(item => item.id === id)
+        data.tasks[index].description = description
+    }
+
     const removeTask = id => {
         const index = data.tasks.findIndex(item => item.id === id)
         data.tasks.splice(index, 1)
@@ -25,7 +30,14 @@ function userData() {
         data.projects = storage.projects || []
     }
 
-    return { data, setData, getTask, addTask, removeTask, changeTaskTitle }
+    return { 
+        data, 
+        setData, 
+        getTask, 
+        addTask, 
+        removeTask, 
+        changeTaskTitle, 
+        changeTaskDescription }
 }
 
 const user = new userData()

@@ -3,6 +3,7 @@ import { user } from "../userData/userData.js"
 import syncData from "../userData/syncData.js";
 import displayMyTasks from "./myTasks.js";
 import addTask from "../pages/addTask.js";
+import { el } from "date-fns/locale";
 
 export default function displayTask(task) {
     const content = document.getElementById("content")
@@ -102,32 +103,42 @@ export default function displayTask(task) {
     infoContainer.append(taskDate)
     infoContainer.append(taskPriority)
     infoContainer.append(buttonsContainer)
-
     // Edit Title
     const changeTitle = editButton.cloneNode(true)
     taskTitle.append(changeTitle)
 
-    const changeContainer = document.createElement("div")
-    changeContainer.className = "change-container"
-    changeContainer.style.display = "none"
+    const changeTitleContainer = document.createElement("div")
+    changeTitleContainer.className = "change-container"
+    changeTitleContainer.style.display = "none"
 
-    const taskTitleInput = document.createElement("input")
-    taskTitleInput.type = "text"
-    taskTitleInput.className = "change-title"
+    const changeTitleInput = document.createElement("input")
+    changeTitleInput.type = "text"
+    changeTitleInput.className = "change-title"
     
     const taskTitleError = errorMessage.cloneNode(true)
     taskTitleError.textContent = `Between 1 and 24 characters!`
     taskTitle.append(taskTitleError)
 
-    changeContainer.append(taskTitleInput)
-
+    changeTitleContainer.append(changeTitleInput)
     // Edit Description
+    const changeDescription = editButton.cloneNode(true)
+    changeDescription.id = "description-btn"
+    taskDescription.append(changeDescription)
 
+    const changeDescriptionInput = document.createElement("textarea")
+    changeDescriptionInput.id = "task-description-change"
+    changeDescriptionInput.style.display = "none"
+
+    const taskDescriptionError = errorMessage.cloneNode(true)
+    taskDescriptionError.textContent = `Description required!`
+    taskDescriptionError.id = "desc-error-msg"
+    taskDescription.append(taskDescriptionError)
 
     container.append(taskTitle)
-    container.append(changeContainer)
+    container.append(changeTitleContainer)
     container.append(titleDivider)
     container.append(taskDescription)
+    container.append(changeDescriptionInput)
     container.append(descriptionDivider)
     container.append(infoContainer)
     content.append(container)
@@ -153,15 +164,16 @@ export default function displayTask(task) {
     // Change title listeners.
     changeTitle.addEventListener("click", () => {
         taskTitle.style.display = 'none'
-        changeContainer.style.display = "flex"
-        taskTitleInput.focus()
+        changeTitleContainer.style.display = "flex"
+        changeTitleInput.value = taskToDisplay.title
+        changeTitleInput.focus()
     })
 
-    taskTitleInput.addEventListener("input", (event) => {
-        event.target.style.width = `${event.target.value.length + 1}ch`
+    changeTitleInput.addEventListener("input", (event) => {
+        event.target.style.width = `${taskToDisplay.length + 1}ch`
     })
 
-    taskTitleInput.addEventListener("keypress", (event) => {
+    changeTitleInput.addEventListener("keypress", (event) => {
         if (event.key === 'Enter') {
             if ((event.target.value).trim().length === 0 ||
                  event.target.value.length >= 24) {
@@ -170,16 +182,57 @@ export default function displayTask(task) {
                     taskTitleError.style.display = "none"
                 }, "1500")
             } else {
-                user.changeTaskTitle(taskToDisplay.id, taskTitleInput.value)
+                user.changeTaskTitle(taskToDisplay.id, changeTitleInput.value)
                 syncData()
                 displayMyTasks()
                 displayTask(task)
             }
             taskTitle.style.display = "flex"
-            taskTitleInput.value = ""
-            changeContainer.style.display = "none"
+            changeTitleInput.value = ""
+            changeTitleContainer.style.display = "none"
+        }
+    })
+    // Change description Listeners
+    const keys = {
+        Enter: false,
+        ShiftLeft: false
+    };
+
+    changeDescription.addEventListener("click", () => {
+        taskDescription.style.display = "none"
+        changeDescriptionInput.style.display = "block"
+        changeDescriptionInput.value = taskToDisplay.description
+            .replace(/^[ \t]+(?=\S)/gm, '')
+            .trim();
+        changeDescriptionInput.focus()
+    })
+
+    changeDescriptionInput.addEventListener("keydown", (event) => {
+        if (event.code in keys) {
+            keys[event.code] = true;
+        }
+
+        if (keys.Enter && !keys.ShiftLeft) {
+            if ((event.target.value).trim().length === 0) {
+                taskDescriptionError.style.display = "inline"
+                setTimeout(() => {
+                    taskDescriptionError.style.display = "none"
+                }, "1500")
+            } else {
+                user.changeTaskDescription(taskToDisplay.id, changeDescriptionInput.value.trim())
+                syncData()
+                displayMyTasks()
+                displayTask(task)
+            }
+            taskDescription.style.display = "block"
+            changeDescriptionInput.value = ""
+            changeDescriptionInput.style.display = "none"
         }
     })
 
-
+    changeDescriptionInput.addEventListener("keyup", (event) => {
+        if (event.code in keys) {
+            keys[event.code] = false;
+        }
+    })
 }
