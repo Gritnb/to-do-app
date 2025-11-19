@@ -86,7 +86,24 @@ export default function displayTask(task) {
     infoContainer.append(taskPriority)
     infoContainer.append(buttonsContainer)
 
+    // Change Title Test DOM
+    const changeTitle = document.createElement("button")
+    changeTitle.textContent = "Change Title"
+    taskTitle.append(changeTitle)
+
+    const taskTitleInput = document.createElement("input")
+    taskTitleInput.type = "text"
+    taskTitleInput.id = "task-title"
+    taskTitleInput.style.display = 'none'
+
+    const changeButton = document.createElement("button")
+    changeButton.textContent = "submit"
+    changeButton.style.display = 'none'
+    // Change Title Text DOM
+
     container.append(taskTitle)
+    container.append(taskTitleInput)
+    container.append(changeButton)
     container.append(titleDivider)
     container.append(taskDescription)
     container.append(descriptionDivider)
@@ -98,16 +115,37 @@ export default function displayTask(task) {
     })
 
     Array.from(document.querySelectorAll('.misc-btn'))
-            .forEach(button => {
-                button.addEventListener("click", (event) => {
-                    user.removeTask(event.currentTarget.id)
-                    syncData()
-                    displayMyTasks()
-                    // Display something when user deletes the task
-                    // Temporary
-                    document.getElementById('new-todo').classList.add("selected")
-                    addTask()
-                    
-                })
+        .forEach(button => {
+            button.addEventListener("click", (event) => {
+                user.removeTask(event.currentTarget.id)
+                syncData()
+                displayMyTasks()
+                // Display something when user deletes the task
+                // Temporary
+                document.getElementById('new-todo').classList.add("selected")
+                addTask()
+                // Temporary
             })
+        })
+    let test = 0
+    changeTitle.addEventListener("click", () => {
+        taskTitle.style.display = 'none'
+        taskTitleInput.style.display = "block"
+        changeButton.style.display = "inline-block"
+        taskTitleInput.focus()
+    })
+
+    changeButton.addEventListener("click", () => {
+        // Input
+        console.log("Input: ", taskTitleInput.value)
+        // Task ID
+        console.log("ID: ", taskToDisplay.id)
+        console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        taskTitle.style.display = "block"
+        taskTitleInput.value = ""
+        taskTitleInput.style.display = "none"
+        changeButton.style.display = "none"
+        test++
+        console.log(test)
+    })
 }

@@ -10,6 +10,10 @@ function userData() {
         data.tasks.push(task)
     }
 
+    // const changeTaskTitle = id => {
+    //     console.log(id)
+    // }
+
     const removeTask = id => {
         const index = data.tasks.findIndex(item => item.id === id)
         data.tasks.splice(index, 1)

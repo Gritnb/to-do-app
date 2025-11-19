@@ -1,5 +1,4 @@
 import { constructNow, format } from "date-fns";
-
 import Task from "../factories/task";
 
 const welcome = new Task(
