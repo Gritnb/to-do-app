@@ -28,6 +28,11 @@ export default function displayTask(task) {
                    d="M18.13 12L19.39 10.74C19.83 10.3 20.39 10.06 21 10V9L15 3H5C3.89 3 3 3.89 3 5V19C3 20.1 3.89 21 5 21H11V19.13L11.13 19H5V5H12V12H18.13M14 4.5L19.5 10H14V4.5M19.13 13.83L21.17 15.87L15.04 22H13V19.96L19.13 13.83M22.85 14.19L21.87 15.17L19.83 13.13L20.81 12.15C21 11.95 21.33 11.95 21.53 12.15L22.85 13.47C23.05 13.67 23.05 14 22.85 14.19Z" />
         </svg>
     `
+
+    const errorMessage = document.createElement("span")
+    errorMessage.className = "change-error-msg"
+    errorMessage.textContent = `Can't be empty!`
+    errorMessage.style.display = "none"
     // Utility DOM Elements
     const container = document.createElement("div")
     container.className = "single-task"
@@ -99,9 +104,8 @@ export default function displayTask(task) {
     infoContainer.append(taskPriority)
     infoContainer.append(buttonsContainer)
 
-    // Change Title Test DOM
+    // Edit Title
     const changeTitle = editButton.cloneNode(true)
-    
     taskTitle.append(changeTitle)
 
     const changeContainer = document.createElement("div")
@@ -112,8 +116,13 @@ export default function displayTask(task) {
     taskTitleInput.type = "text"
     taskTitleInput.className = "change-title"
     
+    const taskTitleError = errorMessage.cloneNode(true)
+    taskTitle.append(taskTitleError)
+
     changeContainer.append(taskTitleInput)
-    // Change Title Text DOM
+
+    // Edit Description
+
 
     container.append(taskTitle)
     container.append(changeContainer)
@@ -141,7 +150,7 @@ export default function displayTask(task) {
             })
         })
     
-    // TEST CHANGE TITLE LISTENERS
+    // Change title listeners.
     changeTitle.addEventListener("click", () => {
         taskTitle.style.display = 'none'
         changeContainer.style.display = "flex"
@@ -154,15 +163,25 @@ export default function displayTask(task) {
 
     taskTitleInput.addEventListener("keypress", (event) => {
         if (event.key === 'Enter') {
-            user.changeTaskTitle(taskToDisplay.id, taskTitleInput.value)
-            syncData()
-            displayMyTasks()
-            displayTask(task)
-            taskTitle.style.display = "block"
+            if ((event.target.value).trim().length === 0 ||
+                 event.target.value.length >= 24) {
+                console.log("validate")
+                taskTitleError.style.display = "inline"
+                setTimeout(() => {
+                    taskTitleError.style.display = "none"
+                }, "1000")
+            } else {
+                user.changeTaskTitle(taskToDisplay.id, taskTitleInput.value)
+                syncData()
+                displayMyTasks()
+                displayTask(task)
+                
+            }
+            taskTitle.style.display = "flex"
             taskTitleInput.value = ""
-            taskTitleInput.style.display = "none"
+            changeContainer.style.display = "none"
         }
     })
 
-    // TEST CHANGE TITLE LISTENERS END
+
 }

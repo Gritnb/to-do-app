@@ -495,6 +495,7 @@ input[type="datetime-local"] {
 }
 
 .single-title {
+    position: relative;
     display: flex;
     align-items: center;
     gap: var(--space-xs);
@@ -566,6 +567,7 @@ input[type="datetime-local"] {
 }
 /* Change Task Details */
 .change-container {
+    width: 60%;
     display: flex;
     align-items: center;
     gap: var(--space-xs);
@@ -576,10 +578,21 @@ input[type="datetime-local"] {
     font-size: 3rem;
     color: var(--text-main);
     background: var(--background);
+    border: 1px solid transparent;
 }
 
 .change-title:focus,
 .change-title:active {
     outline: none;
-    border: 1px solid transparent;
+}
+
+.change-error-msg {
+    top: 0%;
+    left: 50%;
+    width: 90px;
+    position: absolute;
+    font-size: var(--font-md);
+    text-align: center;
+    background: var(--error-color-faded);
+    border: 1px solid var(--error-color);
 }
