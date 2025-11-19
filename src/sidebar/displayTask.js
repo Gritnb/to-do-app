@@ -192,7 +192,7 @@ export default function displayTask(task) {
             changeTitleContainer.style.display = "none"
         }
     })
-    // Change description Listeners
+    // Change description listeners
     const keys = {
         Enter: false,
         ShiftLeft: false
@@ -219,7 +219,10 @@ export default function displayTask(task) {
                     taskDescriptionError.style.display = "none"
                 }, "1500")
             } else {
-                user.changeTaskDescription(taskToDisplay.id, changeDescriptionInput.value.trim())
+                user.changeTaskDescription(
+                    taskToDisplay.id, 
+                    changeDescriptionInput.value.trim()
+                )
                 syncData()
                 displayMyTasks()
                 displayTask(task)

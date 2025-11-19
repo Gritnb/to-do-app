@@ -526,6 +526,8 @@ input[type="datetime-local"] {
     font-size: var(--font-md);
     font-weight: 400;
     color: var(--text-main);
+    cursor: pointer;
+    user-select: none;
 }
 
 .today {
