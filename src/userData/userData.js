@@ -10,9 +10,10 @@ function userData() {
         data.tasks.push(task)
     }
 
-    // const changeTaskTitle = id => {
-    //     console.log(id)
-    // }
+    const changeTaskTitle = (id, title) => {
+        const index = data.tasks.findIndex(item => item.id === id)
+        data.tasks[index].title = title
+    }
 
     const removeTask = id => {
         const index = data.tasks.findIndex(item => item.id === id)
@@ -24,7 +25,7 @@ function userData() {
         data.projects = storage.projects || []
     }
 
-    return { data, setData, getTask, addTask, removeTask }
+    return { data, setData, getTask, addTask, removeTask, changeTaskTitle }
 }
 
 const user = new userData()

@@ -494,6 +494,12 @@ input[type="datetime-local"] {
     color: var(--text-main);
 }
 
+.single-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
 .single-divider {
     width: 60%;
     border: none;
@@ -534,7 +540,8 @@ input[type="datetime-local"] {
     gap: var(--space-m);
 }
 
-.misc-btn {
+.misc-btn,
+.misc-btn-change {
     background: transparent;
     border: none;
     opacity: .7;
@@ -551,4 +558,28 @@ input[type="datetime-local"] {
 
 .misc-btn:hover {
     opacity: 1;
+}
+
+.misc-btn-change:hover {
+    --icon-color: var(--brand-color);
+    opacity: 1;
+}
+/* Change Task Details */
+.change-container {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.change-title {
+    width: 3ch;
+    font-size: 3rem;
+    color: var(--text-main);
+    background: var(--background);
+}
+
+.change-title:focus,
+.change-title:active {
+    outline: none;
+    border: 1px solid transparent;
 }
