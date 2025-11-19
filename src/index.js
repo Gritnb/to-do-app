@@ -25,7 +25,6 @@ import syncData from "./userData/syncData.js"
     // Hooks
     const theme = document.getElementById("theme-button")
     const navItems = Array.from(document.querySelectorAll(".nav-btn"))
-    const taskItems = Array.from(document.querySelectorAll(".task-element"))
     const newTask = document.getElementById('new-todo')
     
     // Listeners
@@ -37,7 +36,9 @@ import syncData from "./userData/syncData.js"
 
     newTask.addEventListener('click', () => {
         newTask.classList.add("selected")
+        const taskItems = Array.from(document.querySelectorAll(".task-element"))
         taskItems.forEach(item => {item.classList.remove("selected")})
+        console.log("clicked")
         addTask()
     })
 })()

@@ -31,7 +31,6 @@ export default function displayTask(task) {
 
     const errorMessage = document.createElement("span")
     errorMessage.className = "change-error-msg"
-    errorMessage.textContent = `Can't be empty!`
     errorMessage.style.display = "none"
     // Utility DOM Elements
     const container = document.createElement("div")
@@ -117,6 +116,7 @@ export default function displayTask(task) {
     taskTitleInput.className = "change-title"
     
     const taskTitleError = errorMessage.cloneNode(true)
+    taskTitleError.textContent = `Between 1 and 24 characters!`
     taskTitle.append(taskTitleError)
 
     changeContainer.append(taskTitleInput)
@@ -168,7 +168,7 @@ export default function displayTask(task) {
                 taskTitleError.style.display = "inline"
                 setTimeout(() => {
                     taskTitleError.style.display = "none"
-                }, "1000")
+                }, "1500")
             } else {
                 user.changeTaskTitle(taskToDisplay.id, taskTitleInput.value)
                 syncData()
