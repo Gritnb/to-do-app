@@ -165,7 +165,6 @@ export default function displayTask(task) {
         if (event.key === 'Enter') {
             if ((event.target.value).trim().length === 0 ||
                  event.target.value.length >= 24) {
-                console.log("validate")
                 taskTitleError.style.display = "inline"
                 setTimeout(() => {
                     taskTitleError.style.display = "none"
@@ -175,7 +174,6 @@ export default function displayTask(task) {
                 syncData()
                 displayMyTasks()
                 displayTask(task)
-                
             }
             taskTitle.style.display = "flex"
             taskTitleInput.value = ""
