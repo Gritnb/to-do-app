@@ -133,6 +133,12 @@ export default function displayTask(task) {
     taskDescriptionError.textContent = `Description required!`
     taskDescriptionError.id = "desc-error-msg"
     taskDescription.append(taskDescriptionError)
+    // Edit date
+    const changeDate = document.createElement("input")
+    changeDate.type = "datetime-local"
+    changeDate.className = "change-date-input"
+    
+
 
     container.append(taskTitle)
     container.append(changeTitleContainer)
@@ -238,4 +244,7 @@ export default function displayTask(task) {
             keys[event.code] = false;
         }
     })
+
+    // Change date listeners
+
 }
