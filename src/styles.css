@@ -516,6 +516,7 @@ input[type="datetime-local"] {
 }
 
 .single-misc {
+    position: relative;
     width: 60%;
     display: flex;
     align-items: center;
@@ -633,4 +634,9 @@ input[type="datetime-local"] {
 
 .change-date-input {
     display: none;
+}
+
+#date-error-msg {
+    top: 50%;
+    left: 110%;
 }

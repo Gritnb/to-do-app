@@ -98,6 +98,11 @@ export default function displayTask(task) {
     buttonsContainer.append(deleteTask)
     buttonsContainer.append(completeTask)
     // Edit date
+    const changeDateError = errorMessage.cloneNode(true)
+    changeDateError.textContent = "Invalid Date!"
+    changeDateError.className = "change-error-msg"
+    changeDateError.id = "date-error-msg"
+
     const changeDate = document.createElement("input")
     changeDate.type = "datetime-local"
     changeDate.className = "change-date-input"
@@ -110,6 +115,11 @@ export default function displayTask(task) {
             changeDate.style.display = "none"
             taskDate.style.display = "block"
             changeDate.value = ''
+            changeDateError.display = "block"
+            changeDateError.style.display = "inline"
+                setTimeout(() => {
+                    changeDateError.style.display = "none"
+                }, "1500")
             return
         } else {
             const date = parseISO(changeDate.value)
@@ -126,6 +136,7 @@ export default function displayTask(task) {
     taskDate.prepend(due)
     infoContainer.append(taskDate)
     infoContainer.append(changeDate)
+    infoContainer.append(changeDateError)
     infoContainer.append(taskPriority)
     infoContainer.append(buttonsContainer)
     // Edit Title
