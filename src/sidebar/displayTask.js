@@ -98,7 +98,7 @@ export default function displayTask(task) {
 
     buttonsContainer.append(deleteTask)
     buttonsContainer.append(completeTask)
-    // Edit date
+    // Change date
     const changeDateError = errorMessage.cloneNode(true)
     changeDateError.textContent = "Invalid Date!"
     changeDateError.className = "change-error-msg"
@@ -133,10 +133,41 @@ export default function displayTask(task) {
             displayTask(task)
         }
     }
-
+    // Change Priority
     const changePriority = document.createElement("select")
     changePriority.id = "change-priority"
     changePriority.style.display = "none"
+    changePriority.multiple = true
+
+    const changeLow = document.createElement("option")
+    changeLow.textContent = "Low"
+    changeLow.value = "low"
+
+    const changeNormal = document.createElement("option")
+    changeNormal.textContent = "Normal"
+    changeNormal.value = "normal"
+
+    const changeHigh = document.createElement("option")
+    changeHigh.textContent = "High"
+    changeHigh.value = "high"
+
+    const changeUrgent = document.createElement("option")
+    changeUrgent.textContent = "Urgent"
+    changeUrgent.value = "urgent"
+
+    changePriority.append(changeLow)
+    changePriority.append(changeNormal)
+    changePriority.append(changeHigh)
+    changePriority.append(changeUrgent)
+
+    changePriority.onblur = () => {
+        taskPriority.style.display = "block"
+        changePriority.style.display = "none"
+        user.changePriority(taskToDisplay.id, changePriority.value)
+        syncData()
+        displayMyTasks()
+        displayTask(task)
+    }
 
     taskDate.prepend(due)
     infoContainer.append(taskDate)
@@ -145,7 +176,7 @@ export default function displayTask(task) {
     infoContainer.append(taskPriority)
     infoContainer.append(changePriority)
     infoContainer.append(buttonsContainer)
-    // Edit Title
+    // Change Title
     const changeTitle = editButton.cloneNode(true)
     taskTitle.append(changeTitle)
 
@@ -162,7 +193,7 @@ export default function displayTask(task) {
     taskTitle.append(taskTitleError)
 
     changeTitleContainer.append(changeTitleInput)
-    // Edit Description
+    // Change Description
     const changeDescription = editButton.cloneNode(true)
     changeDescription.id = "description-btn"
     taskDescription.append(changeDescription)
