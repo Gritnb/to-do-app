@@ -1,4 +1,4 @@
-import { isToday, format, parseISO, isPast, isValid } from "date-fns";
+import { isToday, format, parseISO, isPast } from "date-fns";
 import { user } from "../userData/userData.js"
 import syncData from "../userData/syncData.js";
 import displayMyTasks from "./myTasks.js";
