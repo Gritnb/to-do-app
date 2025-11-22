@@ -62,6 +62,7 @@ export default function displayTask(task) {
 
     const taskPriority = document.createElement("span")
     taskPriority.className = `badge ${taskToDisplay.priority}-badge`
+    taskPriority.id = "change-priority"
     taskPriority.textContent = 
         taskToDisplay.priority[0].toUpperCase() +
         taskToDisplay.priority.slice(1).toLowerCase()
@@ -133,11 +134,16 @@ export default function displayTask(task) {
         }
     }
 
+    const changePriority = document.createElement("select")
+    changePriority.id = "change-priority"
+    changePriority.style.display = "none"
+
     taskDate.prepend(due)
     infoContainer.append(taskDate)
     infoContainer.append(changeDate)
     infoContainer.append(changeDateError)
     infoContainer.append(taskPriority)
+    infoContainer.append(changePriority)
     infoContainer.append(buttonsContainer)
     // Edit Title
     const changeTitle = editButton.cloneNode(true)
@@ -278,5 +284,10 @@ export default function displayTask(task) {
     taskDate.addEventListener("click", () => {
         taskDate.style.display = "none"
         changeDate.style.display = "block"
+    })
+    // Edit priority listeners
+    taskPriority.addEventListener("click", () => {
+        taskPriority.style.display = "none"
+        changePriority.style.display = "block"
     })
 }

@@ -640,3 +640,8 @@ input[type="datetime-local"] {
     top: 50%;
     left: 110%;
 }
+
+#change-priority {
+    user-select: none;
+    cursor: pointer;
+}
