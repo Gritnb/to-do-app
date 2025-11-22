@@ -642,6 +642,31 @@ input[type="datetime-local"] {
 }
 
 #change-priority {
+    width: 20%;
+    font-size: var(--font-md);
+    color: var(--font-main);
+    background: var(--background);
+    border: 1px solid var(--brand-color-faded);
     user-select: none;
     cursor: pointer;
+    overflow: hidden;
+}
+
+#change-priority:active,
+#change-priority:focus {
+    outline: none;
+}
+
+.change-prio-option {
+    width: 100%;
+    padding-block: 2px;
+    padding-right: 5px;
+}
+
+.change-prio-option:hover {
+    background: var(--background-back);
+}
+
+.change-prio-option:focus {
+    border: 1px solid red;
 }

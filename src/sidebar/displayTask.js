@@ -62,7 +62,6 @@ export default function displayTask(task) {
 
     const taskPriority = document.createElement("span")
     taskPriority.className = `badge ${taskToDisplay.priority}-badge`
-    taskPriority.id = "change-priority"
     taskPriority.textContent = 
         taskToDisplay.priority[0].toUpperCase() +
         taskToDisplay.priority.slice(1).toLowerCase()
@@ -142,32 +141,35 @@ export default function displayTask(task) {
     const changeLow = document.createElement("option")
     changeLow.textContent = "Low"
     changeLow.value = "low"
+    changeLow.className = "change-prio-option"
 
     const changeNormal = document.createElement("option")
     changeNormal.textContent = "Normal"
     changeNormal.value = "normal"
+    changeNormal.className = "change-prio-option"
 
     const changeHigh = document.createElement("option")
     changeHigh.textContent = "High"
     changeHigh.value = "high"
+    changeHigh.className = "change-prio-option"
 
     const changeUrgent = document.createElement("option")
     changeUrgent.textContent = "Urgent"
     changeUrgent.value = "urgent"
+    changeUrgent.className = "change-prio-option"
 
     changePriority.append(changeLow)
     changePriority.append(changeNormal)
     changePriority.append(changeHigh)
     changePriority.append(changeUrgent)
 
-    changePriority.onblur = () => {
-        taskPriority.style.display = "block"
-        changePriority.style.display = "none"
+    changePriority.addEventListener("change", () => {
+        console.log("open")
         user.changePriority(taskToDisplay.id, changePriority.value)
         syncData()
         displayMyTasks()
         displayTask(task)
-    }
+    })
 
     taskDate.prepend(due)
     infoContainer.append(taskDate)
