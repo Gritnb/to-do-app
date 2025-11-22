@@ -621,3 +621,7 @@ input[type="datetime-local"] {
     top: 50%;
     left: 110%;
 }
+
+.change-date-input {
+    display: none;
+}

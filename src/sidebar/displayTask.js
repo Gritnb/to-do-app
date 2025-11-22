@@ -1,9 +1,8 @@
-import { isToday } from "date-fns";
+import { isToday, format, parseISO } from "date-fns";
 import { user } from "../userData/userData.js"
 import syncData from "../userData/syncData.js";
 import displayMyTasks from "./myTasks.js";
 import addTask from "../pages/addTask.js";
-import { el } from "date-fns/locale";
 
 export default function displayTask(task) {
     const content = document.getElementById("content")
@@ -98,9 +97,27 @@ export default function displayTask(task) {
 
     buttonsContainer.append(deleteTask)
     buttonsContainer.append(completeTask)
+    // Edit date
+    const changeDate = document.createElement("input")
+    changeDate.type = "datetime-local"
+    changeDate.className = "change-date-input"
+    changeDate.min = `${format(new Date(), "yyyy-MM-dd'T'HH:mm")}`
+    changeDate.max = "9999-12-30T16:30"
+    changeDate.onblur = () => {
+        console.log("submit")
+        changeDate.style.display = "none"
+        taskDate.style.display = "block"
+        const date = parseISO(changeDate.value)
+        const dateFormatted = format(date, "dd MMMM yyyy HH:mm")
+        user.changeTaskDate(taskToDisplay.id, dateFormatted)
+        syncData()
+        displayMyTasks()
+        displayTask(task)
+    }
 
     taskDate.prepend(due)
     infoContainer.append(taskDate)
+    infoContainer.append(changeDate)
     infoContainer.append(taskPriority)
     infoContainer.append(buttonsContainer)
     // Edit Title
@@ -133,12 +150,6 @@ export default function displayTask(task) {
     taskDescriptionError.textContent = `Description required!`
     taskDescriptionError.id = "desc-error-msg"
     taskDescription.append(taskDescriptionError)
-    // Edit date
-    const changeDate = document.createElement("input")
-    changeDate.type = "datetime-local"
-    changeDate.className = "change-date-input"
-    
-
 
     container.append(taskTitle)
     container.append(changeTitleContainer)
@@ -244,7 +255,9 @@ export default function displayTask(task) {
             keys[event.code] = false;
         }
     })
-
-    // Change date listeners
-
+    // Edit time listeners
+    taskDate.addEventListener("click", () => {
+        taskDate.style.display = "none"
+        changeDate.style.display = "block"
+    })
 }

@@ -20,6 +20,11 @@ function userData() {
         data.tasks[index].description = description
     }
 
+    const changeTaskDate = (id, date) => {
+        const index = data.tasks.findIndex(item => item.id === id)
+        data.tasks[index]. date = date
+    }
+
     const removeTask = id => {
         const index = data.tasks.findIndex(item => item.id === id)
         data.tasks.splice(index, 1)
@@ -37,7 +42,9 @@ function userData() {
         addTask, 
         removeTask, 
         changeTaskTitle, 
-        changeTaskDescription }
+        changeTaskDescription,
+        changeTaskDate
+    }
 }
 
 const user = new userData()
