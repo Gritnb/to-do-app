@@ -104,15 +104,16 @@ export default function displayTask(task) {
     changeDate.min = `${format(new Date(), "yyyy-MM-dd'T'HH:mm")}`
     changeDate.max = "9999-12-30T16:30"
     changeDate.onblur = () => {
-        const date = parseISO(changeDate.value)
-        const dateFormatted = format(date, "dd MMMM yyyy HH:mm")
-        if (changeDate.validity.badInput ||
-            isPast(dateFormatted)) {
+        if (changeDate.validity.badInput || 
+            !changeDate.value || 
+            isPast(changeDate.value)) {
             changeDate.style.display = "none"
             taskDate.style.display = "block"
             changeDate.value = ''
             return
         } else {
+            const date = parseISO(changeDate.value)
+            const dateFormatted = format(date, "dd MMMM yyyy HH:mm")
             changeDate.style.display = "none"
             taskDate.style.display = "block"
             user.changeTaskDate(taskToDisplay.id, dateFormatted)

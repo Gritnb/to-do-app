@@ -528,6 +528,15 @@ input[type="datetime-local"] {
     color: var(--text-main);
     cursor: pointer;
     user-select: none;
+    border: 1px solid transparent;
+    border-radius: var(--border-radius-badge);
+    padding: 2px 4px;
+    background: transparent;
+    transition: .3s ease-in;
+}
+
+.single-date:hover {
+    background: var(--brand-color-faded);
 }
 
 .today {
