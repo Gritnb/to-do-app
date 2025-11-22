@@ -1,4 +1,4 @@
-import { isToday, format, parseISO } from "date-fns";
+import { isToday, format, parseISO, isPast, isValid } from "date-fns";
 import { user } from "../userData/userData.js"
 import syncData from "../userData/syncData.js";
 import displayMyTasks from "./myTasks.js";
@@ -104,15 +104,22 @@ export default function displayTask(task) {
     changeDate.min = `${format(new Date(), "yyyy-MM-dd'T'HH:mm")}`
     changeDate.max = "9999-12-30T16:30"
     changeDate.onblur = () => {
-        console.log("submit")
-        changeDate.style.display = "none"
-        taskDate.style.display = "block"
         const date = parseISO(changeDate.value)
         const dateFormatted = format(date, "dd MMMM yyyy HH:mm")
-        user.changeTaskDate(taskToDisplay.id, dateFormatted)
-        syncData()
-        displayMyTasks()
-        displayTask(task)
+        if (changeDate.validity.badInput ||
+            isPast(dateFormatted)) {
+            changeDate.style.display = "none"
+            taskDate.style.display = "block"
+            changeDate.value = ''
+            return
+        } else {
+            changeDate.style.display = "none"
+            taskDate.style.display = "block"
+            user.changeTaskDate(taskToDisplay.id, dateFormatted)
+            syncData()
+            displayMyTasks()
+            displayTask(task)
+        }
     }
 
     taskDate.prepend(due)
