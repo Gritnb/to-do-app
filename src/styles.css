@@ -63,8 +63,6 @@ h1, h2, h3, h4, h5, h6 {
     --space-xs: .5em;
     --border-radius-standard: 10px;
     --border-radius-badge: 5px;
-    --brand-color: #2CC1FF;
-    --brand-color-faded: #2CC1FF66;
     --error-color: #DC143C;
     --error-color-faded: #DC143C66;
 }
@@ -82,6 +80,8 @@ h1, h2, h3, h4, h5, h6 {
     --toggle-color: #ACAAA8;
     --positive: #004D00;
     --neutral: #FF8000;
+    --brand-color: #00B3FF;
+    --brand-color-faded: #65CBF7FD;
 }
 
 :root.dark {
@@ -97,6 +97,8 @@ h1, h2, h3, h4, h5, h6 {
     --toggle-color: #F2C138;
     --positive: lime;
     --neutral: #FFBB00;
+    --brand-color: #2CC1FF;
+    --brand-color-faded: #2CC1FF66;
 }
 /* Utilities */
 .icon-small {
@@ -713,4 +715,30 @@ input[type="datetime-local"] {
 h2 {
     font-size: var(--font-l);
     font-weight: 500;
+}
+
+.nothing-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+.nothing-icon {
+    width: 120px;
+}
+
+.nothing-prompt {
+    font-size: var(--font-md);
+}
+
+.upcoming {
+    color: var(--brand-color-faded);
+    cursor: pointer;
+    transition: .2ms ease-in;
+}
+
+.upcoming:hover {
+    color: var(--brand-color);
 }
