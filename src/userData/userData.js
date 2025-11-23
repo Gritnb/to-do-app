@@ -1,3 +1,5 @@
+import { isToday, parse } from "date-fns"
+
 function userData() {
     let data = {
         tasks: [],
@@ -30,6 +32,12 @@ function userData() {
         data.tasks[index].priority = priority
     }
 
+    const getTodayTasks = () => {
+        return data.tasks.filter(task => {
+            return isToday(parse(task.date, "d MMMM yyyy HH:mm", new Date()))
+        })
+    }
+
     const removeTask = id => {
         const index = data.tasks.findIndex(item => item.id === id)
         data.tasks.splice(index, 1)
@@ -49,7 +57,8 @@ function userData() {
         changeTaskTitle, 
         changeTaskDescription,
         changeTaskDate,
-        changePriority
+        changePriority,
+        getTodayTasks
     }
 }
 

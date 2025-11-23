@@ -6,9 +6,7 @@ import displayTask from "../sidebar/displayTask"
 import displayMyTasks from "../sidebar/myTasks"
 
 export default function today() {
-    const todayTasks = user.data.tasks.filter(task => {
-        return isToday(parse(task.date, "d MMMM yyyy HH:mm", new Date()))
-    })
+    const todayTasks = user.getTodayTasks()
 
     const content = document.getElementById("content")
     content.innerHTML = ``

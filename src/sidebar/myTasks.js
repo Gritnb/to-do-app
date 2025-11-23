@@ -4,7 +4,8 @@ import FullToMs from "../utils/fullDateToMs"
 import displayTask from "./displayTask"
 
 export default function displayMyTasks() {
-    const numberOfTasks = document.getElementById('total-tasks')
+    const numberOfTasks = document.getElementById("total-tasks")
+    const numberOfTodayTasks = document.getElementById("today-tasks")
     const taskSelector = document.getElementById('task-view')
     const tasks = user.data.tasks.sort((a, b) => {
         return FullToMs(a.date) - FullToMs(b.date)
@@ -12,6 +13,7 @@ export default function displayMyTasks() {
 
     taskSelector.textContent = ``
     numberOfTasks.textContent = ``
+    numberOfTodayTasks.textContent = ``
 
     tasks.forEach(task => {
         const taskTitle = document.createElement('button')
@@ -34,4 +36,6 @@ export default function displayMyTasks() {
     })
 
     numberOfTasks.textContent = `${tasks.length > 0 ? tasks.length : ""}`
+    numberOfTodayTasks.textContent = 
+        `${user.getTodayTasks().length > 0 ? user.getTodayTasks().length: ""}`
 }
