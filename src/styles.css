@@ -695,10 +695,19 @@ input[type="datetime-local"] {
 
 .card {
     background: var(--background-back);
+    border: 1px solid transparent;
     border-radius: var(--border-radius-badge);
+    box-shadow: var(--box-shadow);
     padding: var(--space-m);
     margin-bottom: var(--space-l);
     margin-top: calc(var(--space-m) - var(--space-xs));
+    cursor: pointer;
+    transition: .1s ease-in;
+}
+
+.card:hover {
+    border: 1px solid var(--brand-color-faded);
+    box-shadow: none;
 }
 
 h2 {

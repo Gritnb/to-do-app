@@ -1,6 +1,7 @@
 import { user } from "../userData/userData"
 import { isToday, parse } from "date-fns"
 import { colors } from "../utils/colors"
+import displayTask from "../sidebar/displayTask"
 
 export default function today() {
     const todayTasks = user.data.tasks.filter(task => {
@@ -42,10 +43,9 @@ export default function today() {
 
     todayTasks.forEach(task => {
         const card = document.createElement("div")
+        card.id = task.id
         card.className = "card"
         card.style.borderLeft = `5px solid ${colors[task.priority]}`
-
-        console.log(colors[task.priority])
 
         const title = document.createElement("h2")
         title.textContent = `${task.title}`
@@ -60,10 +60,17 @@ export default function today() {
         card.append(description)
         cardsContainer.append(card)
     })
+
     container.append(headerContainer)
     container.append(cardsContainer)
     content.append(container)
 
+    Array.from(document.querySelectorAll(".card"))
+        .forEach(card => {
+            card.addEventListener("click", (event) => {
+                displayTask(event.currentTarget)
+            })
+        })
 }
 
 // Check if task deadline passed
