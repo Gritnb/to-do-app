@@ -1,10 +1,8 @@
-export default function selectedUI() {
-    const navItems = Array.from(document.querySelectorAll(".nav-btn"))
-    navItems.forEach(item => {
+export default function removeIndications() {
+    Array.from(document.querySelectorAll(".nav-btn")).forEach(item => {
         item.classList.remove("selected")
     })
-    const taskItems = Array.from(document.querySelectorAll(".task-element"))
-    taskItems.forEach(item => {
+    Array.from(document.querySelectorAll(".task-element")).forEach(item => {
         item.classList.remove("selected")
     })
 }

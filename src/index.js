@@ -2,9 +2,10 @@ import "./styles.css"
 import { welcome } from "./utils/welcome.js"
 import { user } from "./userData/userData.js"
 import changeTheme from "./utils/changeTheme"
-import selectedUI from "./utils/selectedUI.js"
+import removeIndications from "./utils/selectedUI.js"
 import syncData from "./userData/syncData.js"
 import addTask from "./pages/addTask.js"
+import today from "./pages/today.js"
 
 import displayTask from "./sidebar/displayTask.js"
 import displayMyTasks from "./sidebar/myTasks.js"
@@ -26,22 +27,22 @@ import displayMyTasks from "./sidebar/myTasks.js"
     displayMyTasks()
     // Hooks
     const theme = document.getElementById("theme-button")
-    const newTask = document.getElementById("new-todo")
-    const today = document.getElementById("view-today")
+    const newTaskButton = document.getElementById("new-todo")
+    const todayButton = document.getElementById("view-today")
     
     // Listeners
     theme.addEventListener('click', changeTheme)
   
-    newTask.addEventListener("click", () => {
-        selectedUI()
-        newTask.classList.add("selected")
+    newTaskButton.addEventListener("click", () => {
+        removeIndications()
+        newTaskButton.classList.add("selected")
         addTask()
     })
 
-    today.addEventListener("click", () => {
-        selectedUI()
-        today.classList.add("selected")
-        console.log("today")
+    todayButton.addEventListener("click", () => {
+        removeIndications()
+        todayButton.classList.add("selected")
+        today()
     })
 
     
