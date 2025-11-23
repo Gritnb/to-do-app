@@ -655,18 +655,16 @@ input[type="datetime-local"] {
 #change-priority:active,
 #change-priority:focus {
     outline: none;
+    user-select: none;
 }
 
 .change-prio-option {
     width: 100%;
     padding-block: 2px;
     padding-right: 5px;
+    user-select: none;
 }
 
 .change-prio-option:hover {
     background: var(--background-back);
-}
-
-.change-prio-option:focus {
-    border: 1px solid red;
 }

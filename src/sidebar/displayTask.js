@@ -164,7 +164,6 @@ export default function displayTask(task) {
     changePriority.append(changeUrgent)
 
     changePriority.addEventListener("change", () => {
-        console.log("open")
         user.changePriority(taskToDisplay.id, changePriority.value)
         syncData()
         displayMyTasks()

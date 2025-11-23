@@ -1,11 +1,14 @@
 import "./styles.css"
 import { welcome } from "./utils/welcome.js"
-import changeTheme from "./utils/changeTheme"
-import addTask from "./pages/addTask.js"
 import { user } from "./userData/userData.js"
+import changeTheme from "./utils/changeTheme"
+import selectedUI from "./utils/selectedUI.js"
+import syncData from "./userData/syncData.js"
+import addTask from "./pages/addTask.js"
+
 import displayTask from "./sidebar/displayTask.js"
 import displayMyTasks from "./sidebar/myTasks.js"
-import syncData from "./userData/syncData.js"
+
 
 (function display() {
     // const content = document.getElementById("content")
@@ -21,24 +24,25 @@ import syncData from "./userData/syncData.js"
         })
     }
     displayMyTasks()
-
     // Hooks
     const theme = document.getElementById("theme-button")
-    const navItems = Array.from(document.querySelectorAll(".nav-btn"))
-    const newTask = document.getElementById('new-todo')
+    const newTask = document.getElementById("new-todo")
+    const today = document.getElementById("view-today")
     
     // Listeners
     theme.addEventListener('click', changeTheme)
-   
-    navItems.forEach(item => {
-        item.classList.remove("selected")
-    })
-
-    newTask.addEventListener('click', () => {
+  
+    newTask.addEventListener("click", () => {
+        selectedUI()
         newTask.classList.add("selected")
-        const taskItems = Array.from(document.querySelectorAll(".task-element"))
-        taskItems.forEach(item => {item.classList.remove("selected")})
-        console.log("clicked")
         addTask()
     })
+
+    today.addEventListener("click", () => {
+        selectedUI()
+        today.classList.add("selected")
+        console.log("today")
+    })
+
+    
 })()
