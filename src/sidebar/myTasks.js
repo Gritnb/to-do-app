@@ -1,12 +1,16 @@
 import { user } from "../userData/userData"
 import { colors } from "../utils/colors"
+import FullToMs from "../utils/fullDateToMs"
 import displayTask from "./displayTask"
 
 export default function displayMyTasks() {
     const numberOfTasks = document.getElementById('total-tasks')
     const taskSelector = document.getElementById('task-view')
-    const tasks = user.data.tasks
+    const tasks = user.data.tasks.sort((a, b) => {
+        return FullToMs(a.date) - FullToMs(b.date)
+    })
 
+    console.log(tasks)
     taskSelector.textContent = ``
     numberOfTasks.textContent = ``
 
