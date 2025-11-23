@@ -87,6 +87,7 @@ export default function today() {
         description.textContent = `${task.description}`
 
         const due = document.createElement("p")
+        due.className = "info-due"
         due.textContent = `Due: ${format(task.date, "HH:mm")}`
 
         infoContainer.append(title)

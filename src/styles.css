@@ -707,17 +707,13 @@ input[type="datetime-local"] {
     transition: .1s ease-in;
 }
 
-.info-description {
-    width: 80ch;
+.card:hover {
+    border: 1px solid var(--brand-color-faded);
+    box-shadow: none;
 }
 
 .card-info {
     cursor: pointer;
-}
-
-.card:hover {
-    border: 1px solid var(--brand-color-faded);
-    box-shadow: none;
 }
 
 h2 {
@@ -725,6 +721,16 @@ h2 {
     font-weight: 500;
 }
 
+.info-description {
+    width: 80ch;
+    font-size: var(--font-md);
+    margin-block: var(--space-sm);
+}
+
+.info-due {
+    font-size: var(--font-md);
+}
+/* Today Tasks Empty */
 .nothing-container {
     display: flex;
     flex-direction: column;
