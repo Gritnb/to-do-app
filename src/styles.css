@@ -703,8 +703,16 @@ input[type="datetime-local"] {
     padding: var(--space-m);
     margin-bottom: var(--space-l);
     margin-top: calc(var(--space-m) - var(--space-xs));
-    cursor: pointer;
+    display: flex;
     transition: .1s ease-in;
+}
+
+.info-description {
+    width: 80ch;
+}
+
+.card-info {
+    cursor: pointer;
 }
 
 .card:hover {
