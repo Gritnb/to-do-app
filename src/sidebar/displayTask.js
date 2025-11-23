@@ -10,7 +10,7 @@ export default function displayTask(task) {
 
     const otherTasks = Array.from(document.querySelectorAll('.task-element'))
     otherTasks.forEach(task => task.classList.remove("selected"))
-    task.classList.add("selected")
+    document.getElementById(`${task.id}`).classList.add("selected")
     
     const taskToDisplay = user.getTask(task.id)
     // Utility DOM Elements
