@@ -6,18 +6,21 @@ import removeIndications from "./utils/selectedUI.js"
 import syncData from "./userData/syncData.js"
 import addTask from "./pages/addTask.js"
 import today from "./pages/today.js"
-
 import displayTask from "./sidebar/displayTask.js"
 import displayMyTasks from "./sidebar/myTasks.js"
 
 
 (function display() {
-    // const content = document.getElementById("content")
+    // Hooks
+    const theme = document.getElementById("theme-button")
+    const newTaskButton = document.getElementById("new-todo")
+    const todayButton = document.getElementById("view-today")
     // Set localStorage
     if (JSON.parse(localStorage.getItem("datafortodoapp"))) {
         user.setData(JSON.parse(localStorage.getItem("datafortodoapp")))
         syncData()
-        // VIEW TODAY IF TASK EXIST ELSE MESSAGE 'NOTHING TO DO TODAY'
+        todayButton.classList.add("selected")
+        today()
     } else {
         user.addTask(welcome)
         window.addEventListener("DOMContentLoaded", () => {
@@ -25,10 +28,6 @@ import displayMyTasks from "./sidebar/myTasks.js"
         })
     }
     displayMyTasks()
-    // Hooks
-    const theme = document.getElementById("theme-button")
-    const newTaskButton = document.getElementById("new-todo")
-    const todayButton = document.getElementById("view-today")
     
     // Listeners
     theme.addEventListener('click', changeTheme)
