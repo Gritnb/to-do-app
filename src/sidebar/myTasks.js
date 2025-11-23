@@ -27,7 +27,7 @@ export default function displayMyTasks() {
         taskTitle.prepend(hash)
 
         taskTitle.addEventListener('click', (event) => {
-            displayTask(event.target)
+            displayTask(event.currentTarget)
         })
 
         taskSelector.append(taskTitle)
