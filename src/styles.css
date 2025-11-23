@@ -692,3 +692,16 @@ input[type="datetime-local"] {
     padding-inline: var(--space-m);
     padding-block: var(--space-xs);
 }
+
+.card {
+    background: var(--background-back);
+    border-radius: var(--border-radius-badge);
+    padding: var(--space-m);
+    margin-bottom: var(--space-l);
+    margin-top: calc(var(--space-m) - var(--space-xs));
+}
+
+h2 {
+    font-size: var(--font-l);
+    font-weight: 500;
+}
