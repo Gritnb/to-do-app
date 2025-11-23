@@ -1,5 +1,5 @@
 import { user } from "../userData/userData"
-import { isToday, parse, format } from "date-fns"
+import { format } from "date-fns"
 import { colors } from "../utils/colors"
 import syncData from "../userData/syncData"
 import displayTask from "../sidebar/displayTask"
