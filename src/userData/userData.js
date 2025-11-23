@@ -8,27 +8,31 @@ function userData() {
 
     const getTask = id => data.tasks.filter(target => target.id === id)[0]
 
+    const getTaskIndex = id => {
+        return data.tasks.findIndex(item => item.id === id)
+    }
+
     const addTask = task => {
         data.tasks.push(task)
     }
 
     const changeTaskTitle = (id, title) => {
-        const index = data.tasks.findIndex(item => item.id === id)
+        const index = getTaskIndex(id)
         data.tasks[index].title = title
     }
 
     const changeTaskDescription = (id, description) => {
-        const index = data.tasks.findIndex(item => item.id === id)
+        const index = getTaskIndex(id)
         data.tasks[index].description = description
     }
 
     const changeTaskDate = (id, date) => {
-        const index = data.tasks.findIndex(item => item.id === id)
+        const index = getTaskIndex(id)
         data.tasks[index]. date = date
     }
 
     const changePriority = (id, priority) => {
-        const index = data.tasks.findIndex(item => item.id === id)
+        const index = getTaskIndex(id)
         data.tasks[index].priority = priority
     }
 
