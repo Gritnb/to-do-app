@@ -10,7 +10,6 @@ export default function displayMyTasks() {
         return FullToMs(a.date) - FullToMs(b.date)
     })
 
-    console.log(tasks)
     taskSelector.textContent = ``
     numberOfTasks.textContent = ``
 

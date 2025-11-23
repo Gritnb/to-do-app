@@ -668,3 +668,27 @@ input[type="datetime-local"] {
 .change-prio-option:hover {
     background: var(--background-back);
 }
+/* Today Page */
+.container {
+    min-height: 0;
+    height: 100%;
+    color: var(--text-main);
+    overflow-y: auto;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: var(--space-m);
+}
+
+.today-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.today-container {
+    background: var(--background);
+    border-radius: var(--border-radius-standard);
+    box-shadow: var(--box-shadow-items);
+    padding-inline: var(--space-m);
+    padding-block: var(--space-xs);
+}
