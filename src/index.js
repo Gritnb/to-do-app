@@ -9,8 +9,10 @@ import today from "./pages/today.js"
 import displayTask from "./sidebar/displayTask.js"
 import displayMyTasks from "./sidebar/myTasks.js"
 
-
 (function display() {
+    window.addEventListener("load", () => {
+        console.log("load")
+    })
     // Hooks
     const theme = document.getElementById("theme-button")
     const newTaskButton = document.getElementById("new-todo")
@@ -43,6 +45,4 @@ import displayMyTasks from "./sidebar/myTasks.js"
         todayButton.classList.add("selected")
         today()
     })
-
-    
 })()
