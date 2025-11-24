@@ -1,7 +1,7 @@
 import { isToday, format, parseISO, isPast } from "date-fns";
 import { user } from "../userData/userData.js"
 import syncData from "../userData/syncData.js";
-import displayMyTasks from "./tasksSideMenu.js";
+import tasksSideMenu from "./tasksSideMenu.js";
 import addTask from "../pages/addTask.js";
 
 export default function displayTask(task) {
@@ -128,7 +128,7 @@ export default function displayTask(task) {
             taskDate.style.display = "block"
             user.changeTaskDate(taskToDisplay.id, dateFormatted)
             syncData()
-            displayMyTasks()
+            tasksSideMenu()
             displayTask(task)
         }
     }
@@ -166,7 +166,7 @@ export default function displayTask(task) {
     changePriority.addEventListener("change", () => {
         user.changePriority(taskToDisplay.id, changePriority.value)
         syncData()
-        displayMyTasks()
+        tasksSideMenu()
         displayTask(task)
     })
 
@@ -226,7 +226,7 @@ export default function displayTask(task) {
             button.addEventListener("click", (event) => {
                 user.removeTask(event.currentTarget.id)
                 syncData()
-                displayMyTasks()
+                tasksSideMenu()
                 // Display something when user deletes the task
                 // Temporary
                 document.getElementById('new-todo').classList.add("selected")
@@ -258,7 +258,7 @@ export default function displayTask(task) {
             } else {
                 user.changeTaskTitle(taskToDisplay.id, changeTitleInput.value)
                 syncData()
-                displayMyTasks()
+                tasksSideMenu()
                 displayTask(task)
             }
             taskTitle.style.display = "flex"
@@ -298,7 +298,7 @@ export default function displayTask(task) {
                     changeDescriptionInput.value.trim()
                 )
                 syncData()
-                displayMyTasks()
+                tasksSideMenu()
                 displayTask(task)
             }
             taskDescription.style.display = "block"

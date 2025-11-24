@@ -3,24 +3,31 @@ import FullToMs from "../utils/fullDateToMs"
 import taskButton from "../components/taskButton"
 
 export default function tasksSideMenu() {
-    const numberOfAllPendingTasks = document.getElementById("total-tasks")
+    // Navigation Buttons
     const numberOfTodayTasks = document.getElementById("today-tasks")
-    const myTasksContainer = document.getElementById('task-view')
-
-    numberOfAllPendingTasks.textContent = ``
+    const numberOfUpcomingTasks = document.getElementById("upcoming-tasks")
     numberOfTodayTasks.textContent = ``
-    myTasksContainer.textContent = ``
+    numberOfUpcomingTasks.textContent = ``
+    // Tasks Containers
+    // My Tasks
+    const numberOfAllFutureTasks = document.getElementById("total-tasks")
+    const futureTasksContainer = document.getElementById('task-view')
 
-    const pendingTasks = user.getPendingTasks().sort((a, b) => {
+    numberOfAllFutureTasks.textContent = ``
+    futureTasksContainer.textContent = ``
+
+    const allFutureTasks = user.getPendingTasks().sort((a, b) => {
         return FullToMs(a.date) - FullToMs(b.date)
     })
 
-    pendingTasks.forEach(task => {
-       myTasksContainer.append(taskButton(task))
+    allFutureTasks.forEach(task => {
+       futureTasksContainer.append(taskButton(task))
     })
-
-    numberOfAllPendingTasks.textContent = 
-        `${pendingTasks.length > 0 ? pendingTasks.length : ""}`
+    // Projects
     numberOfTodayTasks.textContent = 
         `${user.getTodayTasks().length > 0 ? user.getTodayTasks().length: ""}`
+    numberOfUpcomingTasks.textContent =
+        `${user.getUpcomingTasks().length > 0 ? user.getUpcomingTasks().length: ""}`
+    numberOfAllFutureTasks.textContent = 
+        `${allFutureTasks.length > 0 ? allFutureTasks.length : ""}`
 }

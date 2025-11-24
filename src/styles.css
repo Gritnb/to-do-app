@@ -234,7 +234,7 @@ header {
 }
 
 .fixed-height {
-    max-height: 140px;
+    max-height: 110px;
     overflow-y: auto;
     padding-inline-start: var(--space-m);
 }

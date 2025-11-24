@@ -3,7 +3,7 @@ import { format } from "date-fns"
 import { colors } from "../utils/colors"
 import syncData from "../userData/syncData"
 import displayTask from "../sidebar/expandTask"
-import displayMyTasks from "../sidebar/tasksSideMenu"
+import tasksSideMenu from "../sidebar/tasksSideMenu"
 import emptyPage from "../components/emptyPage"
 
 export default function today() {
@@ -124,7 +124,7 @@ export default function today() {
                 user.removeTask(event.currentTarget.id)
                 syncData()
                 today()
-                displayMyTasks()
+                tasksSideMenu()
             })
         })
 }

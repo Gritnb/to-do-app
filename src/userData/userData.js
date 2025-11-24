@@ -1,4 +1,4 @@
-import { parse, isToday, isFuture } from "date-fns"
+import { parse, isPast, isToday, isFuture } from "date-fns"
 
 function userData() {
     let data = {
@@ -38,13 +38,27 @@ function userData() {
 
     const getTodayTasks = () => {
         return data.tasks.filter(task => {
-            return isToday(parse(task.date, "d MMMM yyyy HH:mm", new Date()))
+            return isToday(parse(task.date, "d MMMM yyyy HH:mm", new Date())) &&
+                   !isPast(parse(task.date, "d MMMM yyyy HH:mm", new Date())) 
         })
     }
 
     const getPendingTasks = () => {
         return data.tasks.filter(task => {
             return isFuture(parse(task.date, "d MMMM yyyy HH:mm", new Date()))
+        })
+    }
+
+    const getUpcomingTasks = () => {
+        return data.tasks.filter(task => {
+            return  isFuture(parse(task.date, "d MMMM yyyy HH:mm", new Date())) &&
+                    !isToday(parse(task.date, "d MMMM yyyy HH:mm", new Date()))
+        })
+    }
+
+    const getOverdueTasks = () => {
+        return data.tasks.filter(task => {
+            return isPast(parse(task.date, "d MMMM yyyy HH:mm", new Date()))
         })
     }
 
@@ -69,7 +83,9 @@ function userData() {
         changeTaskDate,
         changePriority,
         getTodayTasks,
-        getPendingTasks
+        getPendingTasks,
+        getUpcomingTasks,
+        getOverdueTasks
     }
 }
 
