@@ -1,6 +1,6 @@
 import { format, parseISO } from "date-fns";
 import handleTaskData from "./handleTaskData"
-import displayMyTasks from "../sidebar/myTasks"
+import displayMyTasks from "../sidebar/tasksSideMenu"
 
 export default function handleForm(event) {
     event.preventDefault()

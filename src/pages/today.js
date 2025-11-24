@@ -2,8 +2,8 @@ import { user } from "../userData/userData"
 import { format } from "date-fns"
 import { colors } from "../utils/colors"
 import syncData from "../userData/syncData"
-import displayTask from "../sidebar/displayTask"
-import displayMyTasks from "../sidebar/myTasks"
+import displayTask from "../sidebar/expandTask"
+import displayMyTasks from "../sidebar/tasksSideMenu"
 import emptyPage from "../components/emptyPage"
 
 export default function today() {

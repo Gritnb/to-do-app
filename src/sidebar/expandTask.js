@@ -1,7 +1,7 @@
 import { isToday, format, parseISO, isPast } from "date-fns";
 import { user } from "../userData/userData.js"
 import syncData from "../userData/syncData.js";
-import displayMyTasks from "./myTasks.js";
+import displayMyTasks from "./tasksSideMenu.js";
 import addTask from "../pages/addTask.js";
 
 export default function displayTask(task) {
@@ -18,7 +18,7 @@ export default function displayTask(task) {
     taskDivider.className = "single-divider"
     
     const editButton = document.createElement("button")
-    editButton.className = "misc-btn-change"
+    editButton.className = "misc-btn-change" 
     editButton.innerHTML = `
         <svg xmlns="http://www.w3.org/2000/svg" 
              viewBox="0 0 24 24"

@@ -1,4 +1,4 @@
-import { isToday, parse } from "date-fns"
+import { parse, isToday, isFuture } from "date-fns"
 
 function userData() {
     let data = {
@@ -42,6 +42,12 @@ function userData() {
         })
     }
 
+    const getPendingTasks = () => {
+        return data.tasks.filter(task => {
+            return isFuture(parse(task.date, "d MMMM yyyy HH:mm", new Date()))
+        })
+    }
+
     const removeTask = id => {
         const index = data.tasks.findIndex(item => item.id === id)
         data.tasks.splice(index, 1)
@@ -62,7 +68,8 @@ function userData() {
         changeTaskDescription,
         changeTaskDate,
         changePriority,
-        getTodayTasks
+        getTodayTasks,
+        getPendingTasks
     }
 }
 

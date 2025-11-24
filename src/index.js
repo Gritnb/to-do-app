@@ -6,8 +6,8 @@ import removeIndications from "./utils/selectedUI.js"
 import syncData from "./userData/syncData.js"
 import addTask from "./pages/addTask.js"
 import today from "./pages/today.js"
-import displayTask from "./sidebar/displayTask.js"
-import displayMyTasks from "./sidebar/myTasks.js"
+import displayTask from "./sidebar/expandTask.js"
+import displayMyTasks from "./sidebar/tasksSideMenu.js"
 
 (function display() {
     window.addEventListener("load", () => {
