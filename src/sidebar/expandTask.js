@@ -56,7 +56,7 @@ export default function displayTask(task) {
     const taskDate = document.createElement("span")
     taskDate.className = `single-date ${isToday(taskToDisplay.date) ? "today" : "rest"}`
     taskDate.textContent = `${isToday(taskToDisplay.date)
-        ? `Today`
+        ? `Today at ${format(taskToDisplay.date, 'HH:mm')}`
         : taskToDisplay.date
     }`
 
