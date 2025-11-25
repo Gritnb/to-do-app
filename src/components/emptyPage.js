@@ -1,3 +1,6 @@
+import addTask from "../pages/addTask"
+import removeIndications from "../utils/selectedUI"
+
 export default function emptyPage() {
     const emptyPage = document.createElement("div")
     emptyPage.className = "nothing-container"
@@ -19,13 +22,20 @@ export default function emptyPage() {
     prompt.className = "nothing-prompt"
     prompt.textContent = "There are no tasks for today. "
     
-    const upcomingLink = document.createElement("span")
-    upcomingLink.className = "upcoming"
-    upcomingLink.textContent = "See Upcoming"
+    const newTasksLink = document.createElement("span")
+    newTasksLink.className = "upcoming"
+    newTasksLink.textContent = "Add new tasks"
 
-    prompt.append(upcomingLink)
+    prompt.append(newTasksLink)
     emptyPage.append(icon)
     emptyPage.append(message)
     emptyPage.append(prompt)
+
+    newTasksLink.addEventListener("click", () => {
+        removeIndications()
+        document.getElementById("new-todo").classList.add("selected")
+        addTask()
+    })
+
     return emptyPage
 }
