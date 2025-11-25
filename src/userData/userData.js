@@ -1,4 +1,5 @@
 import { parse, isPast, isToday, isFuture } from "date-fns"
+import syncData from "./syncData"
 
 function userData() {
     let data = {
@@ -19,21 +20,25 @@ function userData() {
     const changeTaskTitle = (id, title) => {
         const index = getTaskIndex(id)
         data.tasks[index].title = title
+        syncData()
     }
 
     const changeTaskDescription = (id, description) => {
         const index = getTaskIndex(id)
         data.tasks[index].description = description
+        syncData()
     }
 
     const changeTaskDate = (id, date) => {
         const index = getTaskIndex(id)
         data.tasks[index]. date = date
+        syncData()
     }
 
     const changePriority = (id, priority) => {
         const index = getTaskIndex(id)
         data.tasks[index].priority = priority
+        syncData()
     }
 
     const getTodayTasks = () => {
@@ -65,6 +70,7 @@ function userData() {
     const removeTask = id => {
         const index = data.tasks.findIndex(item => item.id === id)
         data.tasks.splice(index, 1)
+        syncData()
     }
 
     const setData = storage => {

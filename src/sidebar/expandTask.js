@@ -1,6 +1,5 @@
 import { isToday, format, parseISO, isPast } from "date-fns";
 import { user } from "../userData/userData.js"
-import syncData from "../userData/syncData.js";
 import tasksSideMenu from "./tasksSideMenu.js";
 import addTask from "../pages/addTask.js";
 
@@ -127,7 +126,6 @@ export default function displayTask(task) {
             changeDate.style.display = "none"
             taskDate.style.display = "block"
             user.changeTaskDate(taskToDisplay.id, dateFormatted)
-            syncData()
             tasksSideMenu()
             displayTask(task)
         }
@@ -165,7 +163,6 @@ export default function displayTask(task) {
 
     changePriority.addEventListener("change", () => {
         user.changePriority(taskToDisplay.id, changePriority.value)
-        syncData()
         tasksSideMenu()
         displayTask(task)
     })
@@ -225,7 +222,6 @@ export default function displayTask(task) {
         .forEach(button => {
             button.addEventListener("click", (event) => {
                 user.removeTask(event.currentTarget.id)
-                syncData()
                 tasksSideMenu()
                 // Display something when user deletes the task
                 // Temporary
@@ -257,7 +253,6 @@ export default function displayTask(task) {
                 }, "1500")
             } else {
                 user.changeTaskTitle(taskToDisplay.id, changeTitleInput.value)
-                syncData()
                 tasksSideMenu()
                 displayTask(task)
             }
@@ -297,7 +292,6 @@ export default function displayTask(task) {
                     taskToDisplay.id, 
                     changeDescriptionInput.value.trim()
                 )
-                syncData()
                 tasksSideMenu()
                 displayTask(task)
             }
