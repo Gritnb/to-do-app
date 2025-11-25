@@ -16,4 +16,6 @@ const welcome = new Task(
     format(constructNow(), 'dd MMMM yyyy')
 )
 
+welcome.id = "welcome"
+
 export { welcome }

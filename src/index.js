@@ -28,7 +28,7 @@ import displayMyTasks from "./sidebar/tasksSideMenu.js"
         user.addTask(welcome)
         window.addEventListener("DOMContentLoaded", () => {
             displayMyTasks()
-            displayTask(document.getElementById(`${welcome.id}`))
+            displayTask(document.getElementById(`${welcome.id}`))  
         })
     }
     displayMyTasks()

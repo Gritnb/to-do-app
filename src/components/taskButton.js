@@ -5,7 +5,7 @@ export default function taskButton(task) {
     const taskTitle = document.createElement('button')
     taskTitle.className = "task-element"
     taskTitle.id = task.id
-    
+
     const hash = document.createElement('span')
     hash.className = "hash"
     hash.textContent = "# "

@@ -1,7 +1,7 @@
 import { isToday, format, parseISO, isPast } from "date-fns";
 import { user } from "../userData/userData.js"
 import tasksSideMenu from "./tasksSideMenu.js";
-import addTask from "../pages/addTask.js";
+import today from "../pages/today.js";
 
 export default function displayTask(task) {
     const content = document.getElementById("content")
@@ -167,8 +167,8 @@ export default function displayTask(task) {
         displayTask(task)
     })
 
-    taskDate.prepend(due)
-    infoContainer.append(taskDate)
+    task.id !== "welcome" && taskDate.prepend(due)
+    task.id !== "welcome" && infoContainer.append(taskDate)
     infoContainer.append(changeDate)
     infoContainer.append(changeDateError)
     infoContainer.append(taskPriority)
@@ -223,11 +223,8 @@ export default function displayTask(task) {
             button.addEventListener("click", (event) => {
                 user.removeTask(event.currentTarget.id)
                 tasksSideMenu()
-                // Display something when user deletes the task
-                // Temporary
-                document.getElementById('new-todo').classList.add("selected")
-                addTask()
-                // Temporary
+                document.getElementById('view-today').classList.add("selected")
+                today()
             })
         })
     
