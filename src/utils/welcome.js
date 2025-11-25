@@ -10,7 +10,7 @@ const welcome = new Task(
 
     In your dashboards (Today and Upcoming), you can sort by date or priority.
 
-    This app is in Pre-Alpha phase and uses localStorage to save your tasks. Thus deployed for presentational purposes only.
+    This app is under development thus shall be used for presentational purposes only.
 `,
     "normal",
     format(constructNow(), 'dd MMMM yyyy')
