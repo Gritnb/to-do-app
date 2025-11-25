@@ -62,7 +62,7 @@ export default function taskCards(tasks, period) {
         description.textContent = `${task.description}`
 
         const due = document.createElement("p")
-        due.className = "info-due"
+        due.className = `single-date ${period === "today" ? "today" : "rest"}`
         due.textContent = `${period === "today" ?
             `Due: ${format(task.date, "HH:mm")}` :
             `Due: ${format(task.date, 'd MMMM yyyy HH:mm')}`
