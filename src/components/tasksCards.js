@@ -4,7 +4,6 @@ import { colors } from "../utils/colors"
 import { format } from "date-fns"
 import { user } from "../userData/userData"
 import displayTask from "../sidebar/expandTask"
-import syncData from "../userData/syncData"
 import tasksSideMenu from "../sidebar/tasksSideMenu"
 
 export default function taskCards(tasks, period) {
@@ -124,7 +123,6 @@ export default function taskCards(tasks, period) {
         .forEach(button => {
             button.addEventListener("click", (event) => {
                 user.removeTask(event.currentTarget.id)
-                syncData()
                 today()
                 tasksSideMenu()
             })

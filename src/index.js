@@ -3,7 +3,6 @@ import { welcome } from "./utils/welcome.js"
 import { user } from "./userData/userData.js"
 import changeTheme from "./utils/changeTheme"
 import removeIndications from "./utils/selectedUI.js"
-import syncData from "./userData/syncData.js"
 import addTask from "./pages/addTask.js"
 import today from "./pages/today.js"
 import upcoming from "./pages/upcoming.js"
@@ -23,7 +22,6 @@ import displayMyTasks from "./sidebar/tasksSideMenu.js"
     // Set localStorage
     if (JSON.parse(localStorage.getItem("datafortodoapp"))) {
         user.setData(JSON.parse(localStorage.getItem("datafortodoapp")))
-        syncData()
         todayButton.classList.add("selected")
         today()
     } else {

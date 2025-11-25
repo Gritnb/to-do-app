@@ -15,6 +15,7 @@ function userData() {
 
     const addTask = task => {
         data.tasks.push(task)
+        syncData()
     }
 
     const changeTaskTitle = (id, title) => {
@@ -76,6 +77,7 @@ function userData() {
     const setData = storage => {
         data.tasks = storage.tasks || []
         data.projects = storage.projects || []
+        syncData()
     }
 
     return { 
