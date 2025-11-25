@@ -6,17 +6,20 @@ import removeIndications from "./utils/selectedUI.js"
 import syncData from "./userData/syncData.js"
 import addTask from "./pages/addTask.js"
 import today from "./pages/today.js"
+import upcoming from "./pages/upcoming.js"
 import displayTask from "./sidebar/expandTask.js"
 import displayMyTasks from "./sidebar/tasksSideMenu.js"
 
 (function display() {
     window.addEventListener("load", () => {
         console.log("load")
+        // remove overdue tasks or handlethem
     })
     // Hooks
     const theme = document.getElementById("theme-button")
     const newTaskButton = document.getElementById("new-todo")
     const todayButton = document.getElementById("view-today")
+    const upcomingButton = document.getElementById("view-upcoming")
     // Set localStorage
     if (JSON.parse(localStorage.getItem("datafortodoapp"))) {
         user.setData(JSON.parse(localStorage.getItem("datafortodoapp")))
@@ -44,5 +47,11 @@ import displayMyTasks from "./sidebar/tasksSideMenu.js"
         removeIndications()
         todayButton.classList.add("selected")
         today()
+    })
+
+    upcomingButton.addEventListener("click", () => {
+        removeIndications()
+        upcomingButton.classList.add("selected")
+        upcoming()
     })
 })()
