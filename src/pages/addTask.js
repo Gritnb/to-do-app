@@ -163,6 +163,10 @@ export default function addTask() {
     dateInput.max = "9999-12-30T16:30"
     dateInput.required = true
 
+    dateInput.addEventListener("click", () => {
+        dateInput.showPicker()
+    })
+
     dateField.append(dateLabel)
     dateField.append(dateInput)
     // Buttons
