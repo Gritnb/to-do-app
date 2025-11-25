@@ -39,7 +39,7 @@ function userData() {
     const changePriority = (id, priority) => {
         const index = getTaskIndex(id)
         data.tasks[index].priority = priority
-        syncData()
+        syncData() 
     }
 
     const getTodayTasks = () => {
@@ -51,7 +51,8 @@ function userData() {
 
     const getPendingTasks = () => {
         return data.tasks.filter(task => {
-            return isFuture(parse(task.date, "d MMMM yyyy HH:mm", new Date()))
+            return isFuture(parse(task.date, "d MMMM yyyy HH:mm", new Date())) ||
+                   isToday(parse(task.date, "d MMMM yyyy", new Date()))
         })
     }
 

@@ -19,7 +19,7 @@ export default function tasksSideMenu() {
     const allFutureTasks = user.getPendingTasks().sort((a, b) => {
         return FullToMs(a.date) - FullToMs(b.date)
     })
-    
+
     allFutureTasks.forEach(task => {
        futureTasksContainer.append(taskButton(task))
     })

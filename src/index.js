@@ -27,11 +27,11 @@ import displayMyTasks from "./sidebar/tasksSideMenu.js"
     } else {
         user.addTask(welcome)
         window.addEventListener("DOMContentLoaded", () => {
-            displayTask(document.getElementById(welcome.id))
+            displayMyTasks()
+            displayTask(document.getElementById(`${welcome.id}`))
         })
     }
     displayMyTasks()
-    
     // Listeners
     theme.addEventListener('click', changeTheme)
   
