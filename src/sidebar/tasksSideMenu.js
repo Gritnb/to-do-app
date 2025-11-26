@@ -6,6 +6,7 @@ export default function tasksSideMenu() {
     // Navigation Buttons
     const numberOfTodayTasks = document.getElementById("today-tasks")
     const numberOfUpcomingTasks = document.getElementById("upcoming-tasks")
+    const numberOfOverdueTasks = document.getElementById("overdue-tasks")
     numberOfTodayTasks.textContent = ``
     numberOfUpcomingTasks.textContent = ``
     // Tasks Containers
@@ -23,6 +24,10 @@ export default function tasksSideMenu() {
     allFutureTasks.forEach(task => {
        futureTasksContainer.append(taskButton(task))
     })
+
+    const overdueTasks = user.getOverdueTasks().sort((a, b) => {
+        return FullToMs(a.date) - FullToMs(b.date)
+    })
     // Projects
     numberOfTodayTasks.textContent = 
         `${user.getTodayTasks().length > 0 ? user.getTodayTasks().length: ""}`
@@ -30,4 +35,6 @@ export default function tasksSideMenu() {
         `${user.getUpcomingTasks().length > 0 ? user.getUpcomingTasks().length: ""}`
     numberOfAllFutureTasks.textContent = 
         `${allFutureTasks.length > 0 ? allFutureTasks.length : ""}`
+    numberOfOverdueTasks.textContent = 
+        `${overdueTasks.length > 0 ? overdueTasks.length : ""}`
 }
