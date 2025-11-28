@@ -7,9 +7,6 @@ import displayTask from "./sidebar/expandTask.js"
 import tasksSideMenu from "./sidebar/tasksSideMenu.js"
 
 (function display() {
-    window.addEventListener("load", () => {
-        console.log("load")
-    })
     // Hooks
     const theme = document.getElementById("theme-button")
     const todayButton = document.getElementById("view-today")

@@ -4,12 +4,13 @@ import { format } from "date-fns"
 import { user } from "../userData/userData"
 import displayTask from "../sidebar/expandTask"
 import tasksSideMenu from "../sidebar/tasksSideMenu"
-import addTask from "../pages/addTask"
 import today from "../pages/today"
 import upcoming from "../pages/upcoming"
 import overdue from "../pages/overdue"
+import sortByDate from "../utils/sortByDate"
+import sortByPrio from "../utils/sortByPrio"
 
-export default function taskCards(tasks, period) {
+export default function taskCards(tasks, period, sort = "date") {
     const content = document.getElementById("content")
     content.innerHTML = ``
 
@@ -31,11 +32,12 @@ export default function taskCards(tasks, period) {
 
     const dateButton = document.createElement("button")
     dateButton.textContent = "Date"
-    dateButton.className = "sort-btn left-btn button-selected"
+    dateButton.className = `sort-btn left-btn ${sort === "date" && "button-selected"}`
 
     const priorityButton = document.createElement("button")
     priorityButton.textContent = "Priority"
-    priorityButton.className = "sort-btn right-btn"
+    priorityButton.className = 
+        `sort-btn right-btn ${sort === "prio" && "button-selected"}`
 
     headerControls.append(headerSpan)
     headerControls.append(dateButton)
@@ -122,13 +124,13 @@ export default function taskCards(tasks, period) {
     content.append(container)
 
     dateButton.addEventListener("click", () => {
-        dateButton.classList.add("button-selected")
-        priorityButton.classList.remove("button-selected")
+        tasks = sortByDate(tasks)
+        taskCards(tasks, period, "date")
     })
 
     priorityButton.addEventListener("click", () => {
-        priorityButton.classList.add("button-selected")
-        dateButton.classList.remove("button-selected")
+        tasks = sortByPrio(tasks)
+        taskCards(tasks, period, "prio")
     })
 
     Array.from(document.querySelectorAll(".card-info"))
@@ -152,7 +154,7 @@ export default function taskCards(tasks, period) {
                     user.getOverdueTasks().length) {
                     overdue()
                 } else {
-                    addTask()
+                    emptyPage()
                 }
                 tasksSideMenu()
             })
