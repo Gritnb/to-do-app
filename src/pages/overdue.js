@@ -1,10 +1,8 @@
 import { user } from "../userData/userData"
-import fullToMs from "../utils/fullDateToMs"
+import sortByDate from "../utils/sortByDate"
 import taskCards from "../components/tasksCards"
 
 export default function overdue() {
-    const overdue = user.getOverdueTasks().sort((a, b) => {
-        return fullToMs(b.date) - fullToMs(a.date)
-    })
+    const overdue = sortByDate(user.getOverdueTasks())
     taskCards(overdue, "overdue")
 }
