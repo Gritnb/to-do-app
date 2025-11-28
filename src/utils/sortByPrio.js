@@ -1,8 +1,7 @@
-import fullToMs from "./fullDateToMs"
+import { priorityMap } from "./priotityMap"
 
 export default function sortByPrio(tasks) {
     return tasks.sort((a, b) => {
-        return fullToMs(b.date) - fullToMs(a.date)
-        // Currently sorts by date descending for testing.
+        return priorityMap[b.priority] - priorityMap[a.priority]
     })
 }
