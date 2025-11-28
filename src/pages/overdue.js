@@ -4,7 +4,7 @@ import taskCards from "../components/tasksCards"
 
 export default function overdue() {
     const overdue = user.getOverdueTasks().sort((a, b) => {
-        return FullToMs(a.date) - FullToMs(b.date)
+        return FullToMs(b.date) - FullToMs(a.date)
     })
     taskCards(overdue, "overdue")
 }

@@ -551,8 +551,12 @@ input[type="datetime-local"] {
     color: var(--positive);
 }
 
-.rest {
+.upcoming {
     color: var(--neutral);
+}
+
+.overdue {
+    color: var(--error-color);
 }
 
 .misc-btn-container {
