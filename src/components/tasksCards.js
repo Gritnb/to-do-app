@@ -66,7 +66,7 @@ export default function taskCards(tasks, period) {
         const due = document.createElement("p")
         due.className = "info-due"
         period === "today" && due.classList.add("today")
-        period === "upcoming" && due.classList.add("upcoming")
+        period === "upcoming" && due.classList.add("rest")
         period === "overdue" && due.classList.add("overdue")
         due.textContent = `${period === "today" ?
             `Due: ${format(task.date, "HH:mm")}` :
