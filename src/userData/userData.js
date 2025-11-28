@@ -11,7 +11,7 @@ function userData() {
 
     const getViewingMode = () => viewingModeDate
 
-    const setViewingMode = () => viewingModeDate = !viewingModeDate
+    const toggleViewingMode = () => viewingModeDate = !viewingModeDate
 
     const getTask = id => data.tasks.filter(target => target.id === id)[0]
 
@@ -102,7 +102,7 @@ function userData() {
         getUpcomingTasks,
         getOverdueTasks,
         getViewingMode,
-        setViewingMode
+        toggleViewingMode
     }
 }
 

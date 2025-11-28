@@ -129,13 +129,13 @@ export default function taskCards(tasks, period) {
     content.append(container)
 
     dateButton.addEventListener("click", () => {
-        user.setViewingMode()
+        user.toggleViewingMode()
         tasks = sortByDate(tasks)
         taskCards(tasks, period)
     })
 
     priorityButton.addEventListener("click", () => {
-        user.setViewingMode()
+        user.toggleViewingMode()
         tasks = sortByPrio(tasks)
         taskCards(tasks, period)
     })
