@@ -551,7 +551,7 @@ input[type="datetime-local"] {
     color: var(--positive);
 }
 
-.upcoming {
+.rest {
     color: var(--neutral);
 }
 
