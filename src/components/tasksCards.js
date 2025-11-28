@@ -38,11 +38,13 @@ export default function taskCards(tasks, period) {
     dateButton.textContent = "Date"
     dateButton.className = 
         `sort-btn left-btn ${user.getViewingMode() && "button-selected"}`
+    dateButton.disabled = user.getViewingMode()
 
     const priorityButton = document.createElement("button")
     priorityButton.textContent = "Priority"
     priorityButton.className = 
         `sort-btn right-btn ${!user.getViewingMode() && "button-selected"}`
+    priorityButton.disabled = !user.getViewingMode()
 
     headerControls.append(headerSpan)
     headerControls.append(dateButton)
