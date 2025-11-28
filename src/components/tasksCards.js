@@ -1,11 +1,13 @@
-import today from "../pages/today"
-import overdue from "../pages/overdue"
 import emptyPage from "./emptyPage"
 import { colors } from "../utils/colors"
 import { format } from "date-fns"
 import { user } from "../userData/userData"
 import displayTask from "../sidebar/expandTask"
 import tasksSideMenu from "../sidebar/tasksSideMenu"
+import addTask from "../pages/addTask"
+import today from "../pages/today"
+import upcoming from "../pages/upcoming"
+import overdue from "../pages/overdue"
 
 export default function taskCards(tasks, period) {
     const content = document.getElementById("content")
@@ -64,7 +66,7 @@ export default function taskCards(tasks, period) {
         const due = document.createElement("p")
         due.className = "info-due"
         period === "today" && due.classList.add("today")
-        period === "upcoming" && due.classList.add("rest")
+        period === "upcoming" && due.classList.add("upcoming")
         period === "overdue" && due.classList.add("overdue")
         due.textContent = `${period === "today" ?
             `Due: ${format(task.date, "HH:mm")}` :
@@ -127,10 +129,17 @@ export default function taskCards(tasks, period) {
         .forEach(button => {
             button.addEventListener("click", (event) => {
                 user.removeTask(event.currentTarget.id)
-                if (user.getOverdueTasks().length < 1) {
+                if (period === "today" &&
+                    user.getTodayTasks().length) {
                     today()
-                } else {
+                } else if (period === "upcoming" &&
+                    user.getUpcomingTasks().length) {
+                    upcoming()
+                } else if (period === "overdue" && 
+                    user.getOverdueTasks().length) {
                     overdue()
+                } else {
+                    addTask()
                 }
                 tasksSideMenu()
             })
