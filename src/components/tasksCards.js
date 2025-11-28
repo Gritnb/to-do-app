@@ -50,7 +50,7 @@ export default function taskCards(tasks, period) {
     headerControls.append(dateButton)
     headerControls.append(priorityButton)
     headerContainer.append(header)
-    headerContainer.append(headerControls)
+    period !== "overdue" && headerContainer.append(headerControls)
 
     const cardsContainer = document.createElement("div")
     cardsContainer.className = "today-container"
