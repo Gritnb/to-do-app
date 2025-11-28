@@ -31,9 +31,11 @@ export default function taskCards(tasks, period) {
 
     const dateButton = document.createElement("button")
     dateButton.textContent = "Date"
+    dateButton.className = "sort-btn left-btn button-selected"
 
     const priorityButton = document.createElement("button")
     priorityButton.textContent = "Priority"
+    priorityButton.className = "sort-btn right-btn"
 
     headerControls.append(headerSpan)
     headerControls.append(dateButton)

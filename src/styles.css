@@ -679,7 +679,7 @@ input[type="datetime-local"] {
 .change-prio-option:hover {
     background: var(--background-back);
 }
-/* Today Page */
+/* Task Page */
 .container {
     min-height: 0;
     height: 100%;
@@ -769,4 +769,31 @@ h2 {
 
 .upcoming:hover {
     color: var(--brand-color);
+}
+/* Header Sort Buttons */
+.sort-btn {
+    color: var(--brand-color-faded);
+    background: var(--background-back);
+    border: 1px solid transparent;
+    padding-block: 2px;
+    padding-inline: var(--space-m);
+    cursor: pointer;
+}
+
+.left-btn {
+    margin-left: var(--space-m);
+    border-top-left-radius: var(--border-radius-badge);
+    border-bottom-left-radius: var(--border-radius-badge);
+}
+
+.right-btn {
+    border-top-right-radius: var(--border-radius-badge);
+    border-bottom-right-radius: var(--border-radius-badge);
+}
+
+.left-btn:hover,
+.right-btn:hover,
+.button-selected {
+    color: var(--brand-color);
+    border: 1px solid var(--brand-color)
 }
