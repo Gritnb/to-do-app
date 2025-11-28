@@ -20,7 +20,8 @@ export default function taskCards(tasks, period) {
     headerContainer.className = "today-container today-header"
     
     const header = document.createElement("h1")
-    header.textContent = "Your Tasks"
+    header.textContent = 
+        `${period[0].toUpperCase() + period.slice(1)} Tasks`
 
     const headerControls = document.createElement("div")
     headerControls.className = "user-controls"
