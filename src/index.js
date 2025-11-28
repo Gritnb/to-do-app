@@ -13,7 +13,6 @@ import displayMyTasks from "./sidebar/tasksSideMenu.js"
 (function display() {
     window.addEventListener("load", () => {
         console.log("load")
-        // remove overdue tasks or handlethem
     })
     // Hooks
     const theme = document.getElementById("theme-button")

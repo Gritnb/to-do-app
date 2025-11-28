@@ -1,5 +1,5 @@
 import { user } from "../userData/userData"
-import FullToMs from "../utils/fullDateToMs"
+import fullToMs from "../utils/fullDateToMs"
 import taskButton from "../components/taskButton"
 
 export default function tasksSideMenu() {
@@ -18,7 +18,7 @@ export default function tasksSideMenu() {
     futureTasksContainer.textContent = ``
 
     const allFutureTasks = user.getPendingTasks().sort((a, b) => {
-        return FullToMs(a.date) - FullToMs(b.date)
+        return fullToMs(a.date) - fullToMs(b.date)
     })
 
     allFutureTasks.forEach(task => {
@@ -26,7 +26,7 @@ export default function tasksSideMenu() {
     })
 
     const overdueTasks = user.getOverdueTasks().sort((a, b) => {
-        return FullToMs(a.date) - FullToMs(b.date)
+        return fullToMs(a.date) - fullToMs(b.date)
     })
     // Projects
     numberOfTodayTasks.textContent = 
