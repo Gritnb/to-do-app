@@ -121,6 +121,16 @@ export default function taskCards(tasks, period) {
     container.append(cardsContainer)
     content.append(container)
 
+    dateButton.addEventListener("click", () => {
+        dateButton.classList.add("button-selected")
+        priorityButton.classList.remove("button-selected")
+    })
+
+    priorityButton.addEventListener("click", () => {
+        priorityButton.classList.add("button-selected")
+        dateButton.classList.remove("button-selected")
+    })
+
     Array.from(document.querySelectorAll(".card-info"))
         .forEach(card => {
             card.addEventListener("click", (event) => {
