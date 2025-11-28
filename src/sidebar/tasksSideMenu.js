@@ -1,9 +1,10 @@
 import { user } from "../userData/userData"
 import taskButton from "../components/taskButton"
 import sortByDate from "../utils/sortByDate"
+import navButtons from "./navButtons"
 
 export default function tasksSideMenu() {
-    // Navigation Buttons
+    // Navigation Button Indicators
     const numberOfTodayTasks = document.getElementById("today-tasks")
     const numberOfUpcomingTasks = document.getElementById("upcoming-tasks")
     const numberOfOverdueTasks = document.getElementById("overdue-tasks")
@@ -33,4 +34,5 @@ export default function tasksSideMenu() {
         `${allFutureTasks.length > 0 ? allFutureTasks.length : ""}`
     numberOfOverdueTasks.textContent = 
         `${overdueTasks.length > 0 ? overdueTasks.length : ""}`
+    navButtons()
 }

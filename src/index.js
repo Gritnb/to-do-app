@@ -4,8 +4,7 @@ import { user } from "./userData/userData.js"
 import changeTheme from "./utils/changeTheme"
 import today from "./pages/today.js"
 import displayTask from "./sidebar/expandTask.js"
-import displayMyTasks from "./sidebar/tasksSideMenu.js"
-import navButtons from "./sidebar/navButtons.js"
+import tasksSideMenu from "./sidebar/tasksSideMenu.js"
 
 (function display() {
     window.addEventListener("load", () => {
@@ -22,12 +21,11 @@ import navButtons from "./sidebar/navButtons.js"
     } else {
         user.addTask(welcome)
         window.addEventListener("DOMContentLoaded", () => {
-            displayMyTasks()
+            tasksSideMenu()
             displayTask(document.getElementById(`${welcome.id}`))  
         })
     }
-    displayMyTasks()
-    navButtons()
+    tasksSideMenu()
     // Listeners
     theme.addEventListener('click', changeTheme)
 })()
