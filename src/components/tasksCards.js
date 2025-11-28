@@ -10,7 +10,11 @@ import overdue from "../pages/overdue"
 import sortByDate from "../utils/sortByDate"
 import sortByPrio from "../utils/sortByPrio"
 
-export default function taskCards(tasks, period, sort = "date") {
+export default function taskCards(tasks, period) {
+    tasks = user.getViewingMode() 
+        ? sortByDate(tasks)
+        : sortByPrio(tasks)
+
     const content = document.getElementById("content")
     content.innerHTML = ``
 
@@ -32,12 +36,13 @@ export default function taskCards(tasks, period, sort = "date") {
 
     const dateButton = document.createElement("button")
     dateButton.textContent = "Date"
-    dateButton.className = `sort-btn left-btn ${sort === "date" && "button-selected"}`
+    dateButton.className = 
+        `sort-btn left-btn ${user.getViewingMode() && "button-selected"}`
 
     const priorityButton = document.createElement("button")
     priorityButton.textContent = "Priority"
     priorityButton.className = 
-        `sort-btn right-btn ${sort === "prio" && "button-selected"}`
+        `sort-btn right-btn ${!user.getViewingMode() && "button-selected"}`
 
     headerControls.append(headerSpan)
     headerControls.append(dateButton)
@@ -124,13 +129,15 @@ export default function taskCards(tasks, period, sort = "date") {
     content.append(container)
 
     dateButton.addEventListener("click", () => {
+        user.setViewingMode()
         tasks = sortByDate(tasks)
-        taskCards(tasks, period, "date")
+        taskCards(tasks, period)
     })
 
     priorityButton.addEventListener("click", () => {
+        user.setViewingMode()
         tasks = sortByPrio(tasks)
-        taskCards(tasks, period, "prio")
+        taskCards(tasks, period)
     })
 
     Array.from(document.querySelectorAll(".card-info"))

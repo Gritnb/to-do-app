@@ -7,6 +7,12 @@ function userData() {
         projects: [],
     }
 
+    let viewingModeDate = true
+
+    const getViewingMode = () => viewingModeDate
+
+    const setViewingMode = () => viewingModeDate = !viewingModeDate
+
     const getTask = id => data.tasks.filter(target => target.id === id)[0]
 
     const getTaskIndex = id => {
@@ -94,7 +100,9 @@ function userData() {
         getTodayTasks,
         getPendingTasks,
         getUpcomingTasks,
-        getOverdueTasks
+        getOverdueTasks,
+        getViewingMode,
+        setViewingMode
     }
 }
 
