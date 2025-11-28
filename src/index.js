@@ -2,13 +2,10 @@ import "./styles.css"
 import { welcome } from "./utils/welcome.js"
 import { user } from "./userData/userData.js"
 import changeTheme from "./utils/changeTheme"
-import removeIndications from "./utils/selectedUI.js"
-import addTask from "./pages/addTask.js"
 import today from "./pages/today.js"
-import upcoming from "./pages/upcoming.js"
-import overdue from "./pages/overdue.js"
 import displayTask from "./sidebar/expandTask.js"
 import displayMyTasks from "./sidebar/tasksSideMenu.js"
+import navButtons from "./sidebar/navButtons.js"
 
 (function display() {
     window.addEventListener("load", () => {
@@ -16,10 +13,7 @@ import displayMyTasks from "./sidebar/tasksSideMenu.js"
     })
     // Hooks
     const theme = document.getElementById("theme-button")
-    const newTaskButton = document.getElementById("new-todo")
     const todayButton = document.getElementById("view-today")
-    const upcomingButton = document.getElementById("view-upcoming")
-    const overdueButton = document.getElementById("view-overdue")
     // Set localStorage
     if (JSON.parse(localStorage.getItem("datafortodoapp"))) {
         user.setData(JSON.parse(localStorage.getItem("datafortodoapp")))
@@ -33,30 +27,7 @@ import displayMyTasks from "./sidebar/tasksSideMenu.js"
         })
     }
     displayMyTasks()
+    navButtons()
     // Listeners
     theme.addEventListener('click', changeTheme)
-  
-    newTaskButton.addEventListener("click", () => {
-        removeIndications()
-        newTaskButton.classList.add("selected")
-        addTask()
-    })
-
-    todayButton.addEventListener("click", () => {
-        removeIndications()
-        todayButton.classList.add("selected")
-        today()
-    })
-
-    upcomingButton.addEventListener("click", () => {
-        removeIndications()
-        upcomingButton.classList.add("selected")
-        upcoming()
-    })
-
-    overdueButton.addEventListener("click", () => {
-        removeIndications()
-        overdueButton.classList.add("selected")
-        overdue()
-    })
 })()
