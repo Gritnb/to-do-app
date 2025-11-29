@@ -1,14 +1,12 @@
 import "./styles.css"
 import { welcome } from "./utils/welcome.js"
 import { user } from "./userData/userData.js"
-import changeTheme from "./utils/changeTheme"
 import today from "./pages/today.js"
 import displayTask from "./sidebar/expandTask.js"
 import tasksSideMenu from "./sidebar/tasksSideMenu.js"
 
 (function display() {
     // Hooks
-    const theme = document.getElementById("theme-button")
     const todayButton = document.getElementById("view-today")
     // Set localStorage
     if (JSON.parse(localStorage.getItem("datafortodoapp"))) {
@@ -23,6 +21,4 @@ import tasksSideMenu from "./sidebar/tasksSideMenu.js"
         })
     }
     tasksSideMenu()
-    // Listeners
-    theme.addEventListener('click', changeTheme)
 })()
