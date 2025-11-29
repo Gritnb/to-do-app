@@ -2,6 +2,7 @@ import addTask from "../pages/addTask"
 import removeIndications from "../utils/selectedUI"
 
 export default function emptyPage() {
+
     const emptyPage = document.createElement("div")
     emptyPage.className = "nothing-container"
 

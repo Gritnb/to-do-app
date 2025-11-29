@@ -84,7 +84,7 @@ export default function taskCards(tasks, period) {
             `Due: ${format(task.date, "HH:mm")}` :
             `Due: ${format(task.date, 'd MMMM yyyy HH:mm')}`
         }`
-
+        
         infoContainer.append(title)
         infoContainer.append(description)
         infoContainer.append(due)
@@ -163,7 +163,8 @@ export default function taskCards(tasks, period) {
                     user.getOverdueTasks().length) {
                     overdue()
                 } else {
-                    emptyPage()
+                    cardsContainer.innerHTML = ``
+                    cardsContainer.append(emptyPage())
                 }
                 tasksSideMenu()
             })

@@ -530,6 +530,10 @@ input[type="datetime-local"] {
     gap: var(--space-l);
 }
 
+.due-span {
+    color: var(--text-main);
+}
+
 .single-date {
     font-size: var(--font-md);
     font-weight: 400;

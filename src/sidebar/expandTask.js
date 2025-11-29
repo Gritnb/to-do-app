@@ -49,7 +49,7 @@ export default function displayTask(task) {
     infoContainer.className = "single-misc"
 
     const due = document.createElement("span")
-    due.className = "single-date"
+    due.className = "due-span"
     due.textContent = "Due: "
 
     const taskDate = document.createElement("span")
