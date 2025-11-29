@@ -41,7 +41,7 @@ export default function addTask(type) {
     taskTypeRadio.className = "radio-btn"
     taskTypeRadio.name = "type"
     taskTypeRadio.value = "task"
-    taskTypeRadio.checked = true
+    taskTypeRadio.setAttribute("checked", true)
     const taskTypeCheck = typeCheckmark.cloneNode(true)
 
     taskType.append(taskTypeRadio)
@@ -133,7 +133,7 @@ export default function addTask(type) {
     lowPrioRadio.className = "radio-btn"
     lowPrioRadio.name = "priority"
     lowPrioRadio.value = "low"
-    lowPrioRadio.checked = true
+    lowPrioRadio.setAttribute("checked", true)
     const lowPrioCheck = checkmark.cloneNode(true)
 
     lowPrio.append(lowPrioRadio)
@@ -222,7 +222,7 @@ export default function addTask(type) {
     buttonsField.className = "form-buttons"
 
     const clearButton = document.createElement("button")
-    clearButton.type = "reset"
+    clearButton.type = "button"
     clearButton.className = "form-btn clear-btn"
     clearButton.textContent = "Clear"
 
