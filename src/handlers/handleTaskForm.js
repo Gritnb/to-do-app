@@ -12,5 +12,7 @@ export default function handleForm(event) {
     const dateFormatted = format(date, "dd MMMM yyyy HH:mm")
     handleTaskData(title, description, priority, dateFormatted)
     event.target.reset()
+    document.getElementById("task-type-id").checked = true
+    document.getElementById("low-prio-id").checked = true
     displayMyTasks()
 }

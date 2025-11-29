@@ -345,6 +345,20 @@ input[type="datetime-local"]:active {
     gap: var(--space-m);
 }
 
+.type-buttons {
+    box-sizing: content-box;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.type-radio {
+    position: relative;
+    padding-block: 2px;
+    padding-inline: var(--space-m);
+    user-select: none;
+}
+
 .radio {
     display: flex;
     align-items: center;
@@ -362,9 +376,9 @@ input[type="datetime-local"]:active {
     opacity: 0;
 }
 
-.checkmark {
+.checkmark,
+.type-checkmark {
     position: absolute;
-    background: #FFFFFF70;
     top: 0%;
     left: 0%;
     width: 100%;
@@ -372,10 +386,37 @@ input[type="datetime-local"]:active {
     z-index: 1;
 }
 
+.checkmark {
+    background: #FFFFFF70;
+}
+
+.type-checkmark {
+    background: var(--background);
+    border-radius: var(--border-radius-badge);
+    transform: scale(1.08);
+    opacity: .75;
+}
+
+.type-left-btn,
+.type-right-btn {
+    color: var(--brand-color);
+    border: 1px solid var(--brand-color);
+}
+
 .radio:hover .radio-btn ~ .checkmark,
 .radio .radio-btn:checked ~ .checkmark {
     top: 0%;
     border: 1px solid transparent;
+    background: transparent;
+    z-index: 1;
+    opacity: 1;
+}
+
+.type-radio:hover .radio-btn ~ .type-checkmark,
+.type-radio .radio-btn:checked ~ .type-checkmark {
+    top: 0%;
+    border: 1px solid transparent;
+    border-radius: var(--border-radius-badge);
     background: transparent;
     z-index: 1;
     opacity: 1;
@@ -758,12 +799,17 @@ h2 {
     cursor: pointer;
 }
 
+.type-left-btn,
 .left-btn {
-    margin-left: var(--space-m);
     border-top-left-radius: var(--border-radius-badge);
     border-bottom-left-radius: var(--border-radius-badge);
 }
 
+.left-btn {
+    margin-left: var(--space-m);
+}
+
+.type-right-btn,
 .right-btn {
     border-top-right-radius: var(--border-radius-badge);
     border-bottom-right-radius: var(--border-radius-badge);

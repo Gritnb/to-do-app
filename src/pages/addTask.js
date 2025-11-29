@@ -2,7 +2,7 @@ import { format } from "date-fns"
 import handleClear from "../handlers/handleClear"
 import handleTaskForm from "../handlers/handleTaskForm"
 
-export default function addTask() {
+export default function addTask(type) {
     const content = document.getElementById("content")
     content.innerHTML = ``
 
@@ -18,6 +18,53 @@ export default function addTask() {
 
     const checkmark = document.createElement("span")
     checkmark.classList.add("checkmark")
+
+    const typeCheckmark = document.createElement("span")
+    typeCheckmark.classList.add("type-checkmark")
+    // Task Type
+    const typeField = document.createElement("fieldset")
+    typeField.className ="vertical-fields"
+    
+    const typeLabel = document.createElement("label")
+    typeLabel.textContent = "Type"
+
+    const typeContainer = document.createElement("div")
+    typeContainer.className = "type-buttons"
+
+    const taskType = document.createElement("label")
+    taskType.className = "type-radio type-left-btn"
+    taskType.textContent = "Task"
+
+    const taskTypeRadio = document.createElement("input")
+    taskTypeRadio.id = "task-type-id"
+    taskTypeRadio.type = "radio"
+    taskTypeRadio.className = "radio-btn"
+    taskTypeRadio.name = "type"
+    taskTypeRadio.value = "task"
+    taskTypeRadio.checked = true
+    const taskTypeCheck = typeCheckmark.cloneNode(true)
+
+    taskType.append(taskTypeRadio)
+    taskType.append(taskTypeCheck)
+    typeContainer.append(taskType)
+
+    const projectType = document.createElement("label")
+    projectType.className = "type-radio type-right-btn"
+    projectType.textContent = "Project"
+
+    const projectTypeRadio = document.createElement("input")
+    projectTypeRadio.type = "radio"
+    projectTypeRadio.className = "radio-btn"
+    projectTypeRadio.name = "type"
+    projectTypeRadio.value = "project"
+    const projectTypeCheck = typeCheckmark.cloneNode(true)
+
+    projectType.append(projectTypeRadio)
+    projectType.append(projectTypeCheck)
+    typeContainer.append(projectType)
+
+    typeField.append(typeLabel)
+    typeField.append(typeContainer)
     // Title field
     const titleField = document.createElement("fieldset")
     titleField.classList.add("title-field")
@@ -66,7 +113,7 @@ export default function addTask() {
     descriptionField.append(descriptionInput)
     // Priority field
     const priorityField = document.createElement("fieldset")
-    priorityField.classList.add("vertical-fields")
+    priorityField.className = "vertical-fields"
 
     const priorityLabel = document.createElement("label")
     priorityLabel.textContent = "Priority"
@@ -74,13 +121,14 @@ export default function addTask() {
     priorityLabel.append(priorityReq)
 
     const priorityContainer = document.createElement("div")
-    priorityContainer.classList.add("prio-buttons")
+    priorityContainer.className = "prio-buttons"
 
     const lowPrio = document.createElement("label")
     lowPrio.className = "radio low-badge"
     lowPrio.textContent = "Low"
 
     const lowPrioRadio = document.createElement("input")
+    lowPrioRadio.id = "low-prio-id"
     lowPrioRadio.type = "radio"
     lowPrioRadio.className = "radio-btn"
     lowPrioRadio.name = "priority"
@@ -187,6 +235,7 @@ export default function addTask() {
     buttonsField.append(addButton)
 
     form.append(header)
+    form.append(typeField)
     form.append(titleField)
     form.append(descriptionField)
     form.append(priorityField)

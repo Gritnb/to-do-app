@@ -6,7 +6,6 @@ import overdue from "../pages/overdue"
 
 export default function navButtons() {
     const newTaskButton = document.getElementById("new-todo")
-    const newProjectButton = document.getElementById("new-project")
     const todayButton = document.getElementById("view-today")
     const upcomingButton = document.getElementById("view-upcoming")
     const overdueButton = document.getElementById("view-overdue")
@@ -14,15 +13,9 @@ export default function navButtons() {
     newTaskButton.addEventListener("click", () => {
         removeIndications()
         newTaskButton.classList.add("selected")
-        addTask()
+        addTask("task")
     })
     
-    newProjectButton.addEventListener("click", () => {
-        removeIndications()
-        newProjectButton.classList.add("selected")
-        addTask()
-    })
-
     todayButton.addEventListener("click", () => {
         removeIndications()
         todayButton.classList.add("selected")
