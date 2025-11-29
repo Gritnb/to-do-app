@@ -36,7 +36,7 @@ export default function addTask(type) {
     taskType.textContent = "Task"
 
     const taskTypeRadio = document.createElement("input")
-    taskTypeRadio.id = "task-type-id"
+    taskTypeRadio.id = "hide-project-form"
     taskTypeRadio.type = "radio"
     taskTypeRadio.className = "radio-btn"
     taskTypeRadio.name = "type"
@@ -53,6 +53,7 @@ export default function addTask(type) {
     projectType.textContent = "Project"
 
     const projectTypeRadio = document.createElement("input")
+    projectTypeRadio.id = "expand-project-form"
     projectTypeRadio.type = "radio"
     projectTypeRadio.className = "radio-btn"
     projectTypeRadio.name = "type"
@@ -243,6 +244,16 @@ export default function addTask(type) {
     form.append(buttonsField)
 
     content.append(form)
+    // Expand Form
+    document.getElementById("expand-project-form")
+        .addEventListener("click", () => {
+            console.log("expand")
+        })
+
+    document.getElementById("hide-project-form")
+        .addEventListener("click", () => {
+            console.log("hide")
+        })
 
     clearButton.addEventListener('click', handleClear)
     form.addEventListener('submit', handleTaskForm)
