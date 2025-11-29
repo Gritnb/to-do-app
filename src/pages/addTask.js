@@ -2,7 +2,7 @@ import { format } from "date-fns"
 import handleClear from "../handlers/handleClear"
 import handleTaskForm from "../handlers/handleTaskForm"
 
-export default function addTask(type) {
+export default function addTask() {
     const content = document.getElementById("content")
     content.innerHTML = ``
 
@@ -10,6 +10,7 @@ export default function addTask(type) {
     form.classList.add("new-task")
 
     const header = document.createElement("h1")
+    header.id = "form-header"
     header.textContent = `New Task`
 
     const required = document.createElement("span")
@@ -218,6 +219,20 @@ export default function addTask(type) {
 
     dateField.append(dateLabel)
     dateField.append(dateInput)
+    // Add new project section
+    const stepsContainer = document.createElement("fieldset")
+    stepsContainer.className = "vertical-fields inactive"
+    stepsContainer.id = "steps-container" //HIDE WHEN TASK
+
+    const stepHeader = document.createElement("label")
+    stepHeader.textContent = "Tasks"
+    const stepsReq = required.cloneNode(true)
+    stepHeader.append(stepsReq)
+    
+
+
+
+    stepsContainer.append(stepHeader)
     // Buttons
     const buttonsField = document.createElement("div")
     buttonsField.className = "form-buttons"
@@ -241,20 +256,25 @@ export default function addTask(type) {
     form.append(descriptionField)
     form.append(priorityField)
     form.append(dateField)
+    form.append(stepsContainer)
     form.append(buttonsField)
 
     content.append(form)
     // Expand Form
-    document.getElementById("expand-project-form")
-        .addEventListener("click", () => {
-            console.log("expand")
-        })
-
     document.getElementById("hide-project-form")
         .addEventListener("click", () => {
-            console.log("hide")
+            document.getElementById("form-header").textContent = "New Task"
+            document.getElementById("steps-container").classList.add("inactive")
+            console.log("select existing project")
         })
 
+    document.getElementById("expand-project-form")
+        .addEventListener("click", () => {
+            document.getElementById("form-header").textContent = "New Project"
+            document.getElementById("steps-container").classList.remove("inactive")
+            console.log("create existing project")
+        })
+    
     clearButton.addEventListener('click', handleClear)
     form.addEventListener('submit', handleTaskForm)
 }
