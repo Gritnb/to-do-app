@@ -222,17 +222,19 @@ export default function addTask() {
     // Add new project section
     const stepsContainer = document.createElement("fieldset")
     stepsContainer.className = "vertical-fields inactive"
-    stepsContainer.id = "steps-container" //HIDE WHEN TASK
+    stepsContainer.id = "steps-container"
 
     const stepHeader = document.createElement("label")
     stepHeader.textContent = "Tasks"
     const stepsReq = required.cloneNode(true)
     stepHeader.append(stepsReq)
     
-
-
+    const stepName = document.createElement("input")
+    stepName.textContent = "step"
+    stepName.name = "step"
 
     stepsContainer.append(stepHeader)
+    stepHeader.append(stepName)
     // Buttons
     const buttonsField = document.createElement("div")
     buttonsField.className = "form-buttons"
@@ -265,6 +267,7 @@ export default function addTask() {
         .addEventListener("click", () => {
             document.getElementById("form-header").textContent = "New Task"
             document.getElementById("steps-container").classList.add("inactive")
+            document.querySelector(".submit-btn").textContent = "Add Task"
             console.log("select existing project")
         })
 
@@ -272,6 +275,7 @@ export default function addTask() {
         .addEventListener("click", () => {
             document.getElementById("form-header").textContent = "New Project"
             document.getElementById("steps-container").classList.remove("inactive")
+            document.querySelector(".submit-btn").textContent = "Add Project"
             console.log("create existing project")
         })
     
