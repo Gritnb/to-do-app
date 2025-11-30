@@ -14,6 +14,7 @@ import addTask from "./pages/addTask.js"
     if (JSON.parse(localStorage.getItem("datafortodoapp"))) {
         user.setData(JSON.parse(localStorage.getItem("datafortodoapp")))
         todayButton.classList.add("selected")
+        // Switch to today *
         addTask()
     } else {
         user.addTask(welcome)

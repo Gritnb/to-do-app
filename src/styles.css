@@ -279,32 +279,21 @@ label {
     color: var(--brand-color);
 }
 /* Title */
-.title-field {
-    width: 50%;
-    border: none;
-    display: flex;
-}
-
 #task-title {
-    font-size: var(--font-l);
+    box-sizing: content-box;
+    width: 50%;
+    font-size: var(--font-md);
     color: var(--text-main);
-    background: transparent;
+    background: var(--background-back);
     border: none;
-    padding-left: 10px;
+    border: 1px solid var(--brand-color-faded);
+    padding: var(--space-xs) var(--space-sm);
 }
 
 #task-title:active,
 #task-title:focus {
-    border: none;
+    border: 1px solid var(--brand-color-faded);
     outline: none;
-}
-
-#task-title::placeholder {
-    color: var(--text-main);
-}
-
-label:hover {
-    --icon-color: var(--brand-color);
 }
 /* Description */
 .vertical-fields {
