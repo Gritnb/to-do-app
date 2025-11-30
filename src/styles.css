@@ -256,6 +256,8 @@ header {
 }
 /* Form */
 form {
+    min-height: 0;
+    height: 100%;
     background: var(--background);
     border-radius: var(--border-radius-standard);
     padding: var(--space-l);
@@ -263,6 +265,7 @@ form {
     display: flex;
     flex-direction: column;
     gap: var(--space-l);
+    overflow-y: auto;
 }
 
 h1 {
