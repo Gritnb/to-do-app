@@ -24,6 +24,11 @@ function userData() {
         syncData()
     }
 
+    const addProject = project => {
+        data.projects.push(project)
+        syncData()
+    }
+
     const changeTaskTitle = (id, title) => {
         const index = getTaskIndex(id)
         data.tasks[index].title = title
@@ -91,7 +96,8 @@ function userData() {
         data, 
         setData, 
         getTask, 
-        addTask, 
+        addTask,
+        addProject, 
         removeTask, 
         changeTaskTitle, 
         changeTaskDescription,
