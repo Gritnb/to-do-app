@@ -5,34 +5,39 @@ import navButtons from "./navButtons"
 
 export default function tasksSideMenu() {
     // Navigation Button Indicators
+    // Today
     const numberOfTodayTasks = document.getElementById("today-tasks")
-    const numberOfUpcomingTasks = document.getElementById("upcoming-tasks")
-    const numberOfOverdueTasks = document.getElementById("overdue-tasks")
     numberOfTodayTasks.textContent = ``
+    numberOfTodayTasks.textContent = 
+        `${user.getTodayTasks().length > 0 ? user.getTodayTasks().length: ""}`
+
+    // Upcoming
+    const numberOfUpcomingTasks = document.getElementById("upcoming-tasks")
     numberOfUpcomingTasks.textContent = ``
-    // Tasks Containers
+    numberOfUpcomingTasks.textContent =
+        `${user.getUpcomingTasks().length > 0 ? user.getUpcomingTasks().length: ""}`
+
+    // Overdue
+    const numberOfOverdueTasks = document.getElementById("overdue-tasks")
+    numberOfOverdueTasks.textContent = ``
+    numberOfOverdueTasks.textContent = 
+        `${user.getOverdueTasks().length > 0 ? user.getOverdueTasks().length : ""}`    
+    // Tasks Container
     // My Tasks
-    const numberOfAllFutureTasks = document.getElementById("total-tasks")
-    const futureTasksContainer = document.getElementById('task-view')
-
-    numberOfAllFutureTasks.textContent = ``
-    futureTasksContainer.textContent = ``
-
     const allFutureTasks = sortByDate(user.getPendingTasks())
+    const numberOfAllFutureTasks = document.getElementById("total-tasks")
+    numberOfAllFutureTasks.textContent = ``
+    numberOfAllFutureTasks.textContent = 
+        `${allFutureTasks.length > 0 ? allFutureTasks.length : ""}`
 
+    // Task elements for navigation
+    const futureTasksContainer = document.getElementById('task-view')
+    futureTasksContainer.textContent = ``
     allFutureTasks.forEach(task => {
        futureTasksContainer.append(taskButton(task))
     })
-
-    const overdueTasks = user.getOverdueTasks()
-    // Projects
-    numberOfTodayTasks.textContent = 
-        `${user.getTodayTasks().length > 0 ? user.getTodayTasks().length: ""}`
-    numberOfUpcomingTasks.textContent =
-        `${user.getUpcomingTasks().length > 0 ? user.getUpcomingTasks().length: ""}`
-    numberOfAllFutureTasks.textContent = 
-        `${allFutureTasks.length > 0 ? allFutureTasks.length : ""}`
-    numberOfOverdueTasks.textContent = 
-        `${overdueTasks.length > 0 ? overdueTasks.length : ""}`
+    // Projects Container
+    
+    
     navButtons()
 }
