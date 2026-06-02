@@ -1,10 +1,11 @@
-export default function Task(title, description, priority, date) {
+export default function Task(title, description, priority, date, type) {
     
     return {
         id: crypto.randomUUID(),
         title,
         description,
         priority,
-        date
+        date,
+        type
     }
 }

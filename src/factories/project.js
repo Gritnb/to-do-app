@@ -1,4 +1,4 @@
-export default function Project(title, description, priority, date) {
+export default function Project(title, description, priority, date, type) {
     const tasks = []
 
     return {
@@ -7,6 +7,7 @@ export default function Project(title, description, priority, date) {
         description,
         priority,
         date,
-        tasks
+        tasks,
+        type
     }
 }

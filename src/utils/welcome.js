@@ -13,7 +13,8 @@ const welcome = new Task(
     This app is under development thus shall be used for presentational purposes only.
 `,
     "normal",
-    format(constructNow(), 'dd MMMM yyyy')
+    format(constructNow(), 'dd MMMM yyyy',),
+    "task"
 )
 
 welcome.id = "welcome"
