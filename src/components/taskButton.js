@@ -1,4 +1,4 @@
-import displayTask from "../sidebar/expandTask"
+import expandTask from "../sidebar/expandTask"
 import { colors } from "../utils/colors"
 
 export default function taskButton(task) {
@@ -15,7 +15,7 @@ export default function taskButton(task) {
     taskTitle.prepend(hash)
     
     taskTitle.addEventListener('click', (event) => {
-        displayTask(event.currentTarget)
+        expandTask(event.currentTarget)
     })
     return taskTitle
 }

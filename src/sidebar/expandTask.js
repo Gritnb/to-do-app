@@ -3,7 +3,7 @@ import { user } from "../userData/userData.js"
 import tasksSideMenu from "./tasksSideMenu.js";
 import today from "../pages/today.js";
 
-export default function displayTask(task) {
+export default function expandTask(task) {
     const content = document.getElementById("content")
     content.innerHTML = ``
 
@@ -127,7 +127,7 @@ export default function displayTask(task) {
             taskDate.style.display = "block"
             user.changeTaskDate(taskToDisplay.id, dateFormatted)
             tasksSideMenu()
-            displayTask(task)
+            expandTask(task)
         }
     }
     // Change Priority
@@ -164,7 +164,7 @@ export default function displayTask(task) {
     changePriority.addEventListener("change", () => {
         user.changePriority(taskToDisplay.id, changePriority.value)
         tasksSideMenu()
-        displayTask(task)
+        expandTask(task)
     })
 
     task.id !== "welcome" && taskDate.prepend(due)
@@ -251,7 +251,7 @@ export default function displayTask(task) {
             } else {
                 user.changeTaskTitle(taskToDisplay.id, changeTitleInput.value)
                 tasksSideMenu()
-                displayTask(task)
+                expandTask(task)
             }
             taskTitle.style.display = "flex"
             changeTitleInput.value = ""
@@ -290,7 +290,7 @@ export default function displayTask(task) {
                     changeDescriptionInput.value.trim()
                 )
                 tasksSideMenu()
-                displayTask(task)
+                expandTask(task)
             }
             taskDescription.style.display = "block"
             changeDescriptionInput.value = ""
