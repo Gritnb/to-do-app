@@ -1,5 +1,5 @@
 import "./styles.css"
-import { welcome } from "./utils/welcome.js"
+import { welcome, welcomeProject } from "./utils/welcome.js"
 import { user } from "./userData/userData.js"
 import today from "./pages/today.js"
 import displayTask from "./sidebar/expandTask.js"
@@ -18,6 +18,7 @@ import addTask from "./pages/addTask.js"
         addTask()
     } else {
         user.addTask(welcome)
+        user.addProject(welcomeProject)
         window.addEventListener("DOMContentLoaded", () => {
             tasksSideMenu()
             displayTask(document.getElementById(`${welcome.id}`))  
