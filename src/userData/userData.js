@@ -86,6 +86,10 @@ function userData() {
         syncData()
     }
 
+    const getProjects = () =>{
+        return data.projects
+    }
+
     const setData = storage => {
         data.tasks = storage.tasks || []
         data.projects = storage.projects || []
@@ -108,7 +112,8 @@ function userData() {
         getUpcomingTasks,
         getOverdueTasks,
         getViewingMode,
-        toggleViewingMode
+        toggleViewingMode,
+        getProjects
     }
 }
 

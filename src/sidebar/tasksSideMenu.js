@@ -37,7 +37,13 @@ export default function tasksSideMenu() {
        futureTasksContainer.append(taskButton(task))
     })
     // Projects Container
-    
-    
+    const allProjects = sortByDate(user.getProjects())
+    console.log(allProjects)
+    const numberOfProjects = document.getElementById("total-projects")
+    numberOfProjects.textContent = ``
+    numberOfProjects.textContent = 
+        `${allProjects.length > 0 ? allProjects.length : ""}`
+
     navButtons()
 }
+
