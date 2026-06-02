@@ -262,7 +262,7 @@ export default function addTask() {
             document.getElementById("form-header").textContent = "New Task"
             document.getElementById("steps-container").classList.add("inactive")
             document.querySelector(".submit-btn").textContent = "Add Task"
-            console.log("select existing project")
+            console.log("create task")
         })
 
     document.getElementById("expand-project-form")
@@ -270,7 +270,7 @@ export default function addTask() {
             document.getElementById("form-header").textContent = "New Project"
             document.getElementById("steps-container").classList.remove("inactive")
             document.querySelector(".submit-btn").textContent = "Add Project"
-            console.log("create existing project")
+            console.log("create project")
         })
     
     clearButton.addEventListener('click', handleClear)
