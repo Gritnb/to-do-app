@@ -10,6 +10,7 @@ export default function handleForm(event) {
     const priority = data.get("priority")
     const date = parseISO(data.get("date"))
     const dateFormatted = format(date, "dd MMMM yyyy HH:mm")
+    const type = data.get("type")
     handleTaskData(title, description, priority, dateFormatted)
     event.target.reset()
     displayMyTasks()

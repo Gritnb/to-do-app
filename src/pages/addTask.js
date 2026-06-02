@@ -239,7 +239,7 @@ export default function addTask() {
     form.append(buttonsField)
 
     content.append(form)
-    // Expand Form
+    // Toggle form
     document.getElementById("hide-project-form")
         .addEventListener("click", () => {
             document.getElementById("form-header").textContent = "New Task"

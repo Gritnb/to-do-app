@@ -7,5 +7,6 @@ export function project(title, description, priority, date) {
         description,
         priority,
         date,
+        tasks
     }
 }
