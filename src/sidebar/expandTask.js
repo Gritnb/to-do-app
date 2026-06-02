@@ -12,8 +12,7 @@ export default function expandTask(task, type) {
     document.getElementById(`${task.id}`).classList.add("selected")
     
     const taskToDisplay = user.getTask(task.id, type)
-    
-    console.log(taskToDisplay)
+    console.log(taskToDisplay.type)
     // Utility DOM Elements
     const taskDivider = document.createElement("hr")
     taskDivider.className = "single-divider"
@@ -127,9 +126,9 @@ export default function expandTask(task, type) {
             const dateFormatted = format(date, "dd MMMM yyyy HH:mm")
             changeDate.style.display = "none"
             taskDate.style.display = "block"
-            user.changeTaskDate(taskToDisplay.id, dateFormatted)
+            user.changeTaskDate(taskToDisplay.id, dateFormatted, taskToDisplay.type)
             tasksSideMenu()
-            expandTask(task)
+            expandTask(task, taskToDisplay.type)
         }
     }
     // Change Priority
@@ -164,9 +163,9 @@ export default function expandTask(task, type) {
     changePriority.append(changeUrgent)
 
     changePriority.addEventListener("change", () => {
-        user.changePriority(taskToDisplay.id, changePriority.value)
+        user.changePriority(taskToDisplay.id, changePriority.value, taskToDisplay.type)
         tasksSideMenu()
-        expandTask(task)
+        expandTask(task, taskToDisplay.type)
     })
 
     task.id !== "welcome" && taskDate.prepend(due)
@@ -251,9 +250,10 @@ export default function expandTask(task, type) {
                     taskTitleError.style.display = "none"
                 }, "1500")
             } else {
-                user.changeTaskTitle(taskToDisplay.id, changeTitleInput.value)
+                user.changeTaskTitle(taskToDisplay.id, 
+                        changeTitleInput.value, taskToDisplay.type)
                 tasksSideMenu()
-                expandTask(task)
+                expandTask(task, taskToDisplay.type)
             }
             taskTitle.style.display = "flex"
             changeTitleInput.value = ""
@@ -289,10 +289,11 @@ export default function expandTask(task, type) {
             } else {
                 user.changeTaskDescription(
                     taskToDisplay.id, 
-                    changeDescriptionInput.value.trim()
+                    changeDescriptionInput.value.trim(),
+                    taskToDisplay.type
                 )
                 tasksSideMenu()
-                expandTask(task)
+                expandTask(task, taskToDisplay.type)
             }
             taskDescription.style.display = "block"
             changeDescriptionInput.value = ""

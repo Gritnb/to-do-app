@@ -22,8 +22,13 @@ function userData() {
         }
     }
 
-    const getTaskIndex = id => {
-        return data.tasks.findIndex(item => item.id === id)
+    const getTaskIndex = (id, type) => {
+        if (type === "task") {
+            return data.tasks.findIndex(item => item.id === id)
+        }
+        if (type === "project") {
+            return data.projects.findIndex(item => item.id === id)
+        }
     }
 
     const addTask = task => {
@@ -36,27 +41,47 @@ function userData() {
         syncData()
     }
 
-    const changeTaskTitle = (id, title) => {
-        const index = getTaskIndex(id)
-        data.tasks[index].title = title
+    const changeTaskTitle = (id, title, type) => {
+        const index = getTaskIndex(id, type)
+        if (type === "task") {
+            data.tasks[index].title = title
+        }
+        if (type === "project") {
+            data.projects[index].title = title
+        }
         syncData()
     }
 
-    const changeTaskDescription = (id, description) => {
-        const index = getTaskIndex(id)
-        data.tasks[index].description = description
+    const changeTaskDescription = (id, description, type) => {
+        const index = getTaskIndex(id, type)
+        if (type === "task") {
+            data.tasks[index].description = description
+        }
+        if (type === "project") {
+            data.projects[index].description = description
+        }
         syncData()
     }
 
-    const changeTaskDate = (id, date) => {
-        const index = getTaskIndex(id)
-        data.tasks[index]. date = date
+    const changeTaskDate = (id, date, type) => {
+        const index = getTaskIndex(id, type)
+        if (type === "task") {
+            data.tasks[index]. date = date
+        }
+        if (type === "project") {
+            data.projects[index]. date = date
+        }
         syncData()
     }
 
-    const changePriority = (id, priority) => {
-        const index = getTaskIndex(id)
-        data.tasks[index].priority = priority
+    const changePriority = (id, priority, type) => {
+        const index = getTaskIndex(id, type)
+        if (type === "task") {
+            data.tasks[index].priority = priority
+        }
+        if (type === "project") {
+            data.projects[index].priority = priority
+        }
         syncData() 
     }
 
