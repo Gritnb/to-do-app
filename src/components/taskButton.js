@@ -15,12 +15,7 @@ export default function taskButton(task) {
     taskTitle.prepend(hash)
     
     taskTitle.addEventListener('click', (event) => {
-        if (task.type === "task") {
-            expandTask(event.currentTarget)
-        }
-        if (task.type === "project") {
-            console.log("pending project interface")
-        }
+        expandTask(event.currentTarget, task.type)
     })
     return taskTitle
 }

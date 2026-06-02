@@ -13,7 +13,14 @@ function userData() {
 
     const toggleViewingMode = () => viewingModeDate = !viewingModeDate
 
-    const getTask = id => data.tasks.filter(target => target.id === id)[0]
+    const getTask = (id, type) => {
+        if (type === "task") {
+            return data.tasks.filter(target => target.id === id)[0]
+        }
+        if (type === "project") {
+            return data.projects.filter(target => target.id === id)[0]
+        }
+    }
 
     const getTaskIndex = id => {
         return data.tasks.findIndex(item => item.id === id)

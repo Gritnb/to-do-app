@@ -3,7 +3,7 @@ import { user } from "../userData/userData.js"
 import tasksSideMenu from "./tasksSideMenu.js";
 import today from "../pages/today.js";
 
-export default function expandTask(task) {
+export default function expandTask(task, type) {
     const content = document.getElementById("content")
     content.innerHTML = ``
 
@@ -11,7 +11,9 @@ export default function expandTask(task) {
     otherTasks.forEach(task => task.classList.remove("selected"))
     document.getElementById(`${task.id}`).classList.add("selected")
     
-    const taskToDisplay = user.getTask(task.id)
+    const taskToDisplay = user.getTask(task.id, type)
+    
+    console.log(taskToDisplay)
     // Utility DOM Elements
     const taskDivider = document.createElement("hr")
     taskDivider.className = "single-divider"
