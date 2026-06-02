@@ -218,11 +218,11 @@ export default function expandTask(task, type) {
     Array.from(document.querySelectorAll(".nav-btn")).forEach(item => {
         item.classList.remove("selected")
     })
-
+    // Complete Remove Current task.
     Array.from(document.querySelectorAll('.misc-btn'))
         .forEach(button => {
             button.addEventListener("click", (event) => {
-                user.removeTask(event.currentTarget.id)
+                user.removeTask(event.currentTarget.id, taskToDisplay.type)
                 tasksSideMenu()
                 document.getElementById('view-today').classList.add("selected")
                 today()

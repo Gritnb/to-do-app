@@ -112,9 +112,15 @@ function userData() {
         })
     }
 
-    const removeTask = id => {
-        const index = data.tasks.findIndex(item => item.id === id)
-        data.tasks.splice(index, 1)
+    const removeTask = (id, type) => {
+        if (type === "task") {
+            const index = data.tasks.findIndex(item => item.id === id)
+            data.tasks.splice(index, 1)
+        }
+        if (type === "project") {
+            const index = data.projects.findIndex(item => item.id === id)
+            data.projects.splice(index, 1)
+        }
         syncData()
     }
 
