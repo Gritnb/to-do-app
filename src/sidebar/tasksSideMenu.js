@@ -43,7 +43,11 @@ export default function tasksSideMenu() {
     numberOfProjects.textContent = ``
     numberOfProjects.textContent = 
         `${allProjects.length > 0 ? allProjects.length : ""}`
-
+    // Project elements for navigation
+    const projectsContainer = document.getElementById("project-view")
+    allProjects.forEach(project => {
+        projectsContainer.append(taskButton(project))
+    })
+    // Initiate navigation
     navButtons()
 }
-
