@@ -2,7 +2,7 @@ import "./styles.css"
 import { welcome, welcomeProject } from "./utils/welcome.js"
 import { user } from "./userData/userData.js"
 import today from "./pages/today.js"
-import displayTask from "./sidebar/expandTask.js"
+import expandTask from "./sidebar/expandTask.js"
 import tasksSideMenu from "./sidebar/tasksSideMenu.js"
 // Testing
 import addTask from "./pages/addTask.js"
@@ -21,7 +21,7 @@ import addTask from "./pages/addTask.js"
         user.addProject(welcomeProject)
         window.addEventListener("DOMContentLoaded", () => {
             tasksSideMenu()
-            displayTask(document.getElementById(`${welcome.id}`))  
+            expandTask(document.getElementById(`${welcome.id}`), welcome.type)  
         })
     }
     tasksSideMenu()

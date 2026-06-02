@@ -168,8 +168,11 @@ export default function expandTask(task, type) {
         expandTask(task, taskToDisplay.type)
     })
 
-    task.id !== "welcome" && taskDate.prepend(due)
-    task.id !== "welcome" && infoContainer.append(taskDate)
+    if (task.id !== "welcome" && task.id !== "welcome-project") {
+        taskDate.prepend(due)
+        infoContainer.append(taskDate)
+    }
+
     infoContainer.append(changeDate)
     infoContainer.append(changeDateError)
     infoContainer.append(taskPriority)

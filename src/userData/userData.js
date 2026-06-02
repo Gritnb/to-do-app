@@ -8,7 +8,7 @@ function userData() {
     }
 
     let viewingModeDate = true
-
+    // Toggles card sorting method: Date / Priority
     const getViewingMode = () => viewingModeDate
 
     const toggleViewingMode = () => viewingModeDate = !viewingModeDate
