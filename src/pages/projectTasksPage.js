@@ -1,3 +1,8 @@
+import { user } from "../userData/userData"
+
 export default function projectTasksPage(id) {
-    console.log(id)
+
+    const projectTasks = user.getTask(id, "project").tasks
+    console.log(projectTasks)
+
 }

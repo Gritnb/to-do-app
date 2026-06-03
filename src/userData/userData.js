@@ -12,7 +12,7 @@ function userData() {
     const getViewingMode = () => viewingModeDate
 
     const toggleViewingMode = () => viewingModeDate = !viewingModeDate
-
+    // Toggles card sorting method: Date / Priority
     const getTask = (id, type) => {
         if (type === "task") {
             return data.tasks.filter(target => target.id === id)[0]

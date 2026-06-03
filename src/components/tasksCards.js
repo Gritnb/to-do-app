@@ -9,6 +9,7 @@ import upcoming from "../pages/upcoming"
 import overdue from "../pages/overdue"
 import sortByDate from "../utils/sortByDate"
 import sortByPrio from "../utils/sortByPrio"
+import displaySorter from "./displaySorter"
 
 export default function taskCards(tasks, period) {
     tasks = user.getViewingMode() 
@@ -28,28 +29,9 @@ export default function taskCards(tasks, period) {
     header.textContent = 
         `${period[0].toUpperCase() + period.slice(1)} Tasks`
 
-    const headerControls = document.createElement("div")
-    headerControls.className = "user-controls"
-
-    const headerSpan = document.createElement("span")
-    headerSpan.textContent = "Sort By: "
-
-    const dateButton = document.createElement("button")
-    dateButton.textContent = "Date"
-    dateButton.className = 
-        `sort-btn left-btn ${user.getViewingMode() && "button-selected"}`
-    dateButton.disabled = user.getViewingMode()
-
-    const priorityButton = document.createElement("button")
-    priorityButton.textContent = "Priority"
-    priorityButton.className = 
-        `sort-btn right-btn ${!user.getViewingMode() && "button-selected"}`
-    priorityButton.disabled = !user.getViewingMode()
-
-    headerControls.append(headerSpan)
-    headerControls.append(dateButton)
-    headerControls.append(priorityButton)
+    const headerControls = displaySorter(tasks, period)
     headerContainer.append(header)
+
     period !== "overdue" && headerContainer.append(headerControls)
 
     const cardsContainer = document.createElement("div")
@@ -129,18 +111,6 @@ export default function taskCards(tasks, period) {
     container.append(headerContainer)
     container.append(cardsContainer)
     content.append(container)
-
-    dateButton.addEventListener("click", () => {
-        user.toggleViewingMode()
-        tasks = sortByDate(tasks)
-        taskCards(tasks, period)
-    })
-
-    priorityButton.addEventListener("click", () => {
-        user.toggleViewingMode()
-        tasks = sortByPrio(tasks)
-        taskCards(tasks, period)
-    })
 
     Array.from(document.querySelectorAll(".card-info"))
         .forEach(card => {
