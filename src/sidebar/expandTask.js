@@ -2,6 +2,7 @@ import { isToday, format, parseISO, isPast } from "date-fns";
 import { user } from "../userData/userData.js"
 import tasksSideMenu from "./tasksSideMenu.js";
 import today from "../pages/today.js";
+import projectTasksPage from "../pages/projectTasksPage.js";
 
 export default function expandTask(task, type) {
     const content = document.getElementById("content")
@@ -12,7 +13,6 @@ export default function expandTask(task, type) {
     document.getElementById(`${task.id}`).classList.add("selected")
     
     const taskToDisplay = user.getTask(task.id, type)
-    console.log(taskToDisplay.type)
     // Utility DOM Elements
     const taskDivider = document.createElement("hr")
     taskDivider.className = "single-divider"
@@ -319,4 +319,8 @@ export default function expandTask(task, type) {
         taskPriority.style.display = "none"
         changePriority.style.display = "block"
     })
+    // Project's tasks container
+    if (taskToDisplay.type === "project") {
+        projectTasksPage(taskToDisplay.id)
+    }
 }

@@ -164,7 +164,7 @@ export default function taskCards(tasks, period) {
                     overdue()
                 } else {
                     cardsContainer.innerHTML = ``
-                    cardsContainer.append(emptyPage())
+                    cardsContainer.append(emptyPage(period))
                 }
                 tasksSideMenu()
             })

@@ -5,8 +5,6 @@ export default function emptyPage(period) {
 
     const emptyPage = document.createElement("div")
     emptyPage.className = "nothing-container"
-    
-    console.log(period)
 
     const icon = document.createElement("p")
     icon.innerHTML = `
