@@ -4,8 +4,6 @@ import { user } from "./userData/userData.js"
 import today from "./pages/today.js"
 import expandTask from "./sidebar/expandTask.js"
 import tasksSideMenu from "./sidebar/tasksSideMenu.js"
-// Testing
-import addTask from "./pages/addTask.js"
 
 (function display() {
     // Hooks
@@ -14,8 +12,7 @@ import addTask from "./pages/addTask.js"
     if (JSON.parse(localStorage.getItem("datafortodoapp"))) {
         user.setData(JSON.parse(localStorage.getItem("datafortodoapp")))
         todayButton.classList.add("selected")
-        // Switch to today() for release *
-        addTask()
+        today()
     } else {
         user.addTask(welcome)
         user.addProject(welcomeProject)
