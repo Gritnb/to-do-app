@@ -1,10 +1,12 @@
 import addTask from "../pages/addTask"
 import removeIndications from "../utils/selectedUI"
 
-export default function emptyPage() {
+export default function emptyPage(period) {
 
     const emptyPage = document.createElement("div")
     emptyPage.className = "nothing-container"
+    
+    console.log(period)
 
     const icon = document.createElement("p")
     icon.innerHTML = `
@@ -21,7 +23,16 @@ export default function emptyPage() {
 
     const prompt = document.createElement("p")
     prompt.className = "nothing-prompt"
-    prompt.textContent = "There are no tasks for today. "
+
+    if (period === "today") {
+        prompt.textContent = "There are no tasks for today. "
+    }
+    if (period === "upcoming") {
+        prompt.textContent = "There are no upcoming tasks. "
+    }
+    if (period === "overdue") {
+        prompt.textContent = "There are no tasks overdue. "
+    }
     
     const newTasksLink = document.createElement("span")
     newTasksLink.className = "upcoming"

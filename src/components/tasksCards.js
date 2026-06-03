@@ -56,7 +56,7 @@ export default function taskCards(tasks, period) {
     cardsContainer.className = "today-container"
 
     if (tasks.length === 0) {
-        cardsContainer.append(emptyPage())
+        cardsContainer.append(emptyPage(period))
     }
 
     tasks.forEach(task => {
