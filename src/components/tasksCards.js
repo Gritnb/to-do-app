@@ -10,6 +10,7 @@ import overdue from "../pages/overdue"
 import sortByDate from "../utils/sortByDate"
 import sortByPrio from "../utils/sortByPrio"
 import displaySorter from "./displaySorter"
+import expandTask from "../sidebar/expandTask"
 
 export default function taskCards(tasks, period) {
     tasks = user.getViewingMode() 
@@ -115,7 +116,7 @@ export default function taskCards(tasks, period) {
     Array.from(document.querySelectorAll(".card-info"))
         .forEach(card => {
             card.addEventListener("click", (event) => {
-                displayTask(event.currentTarget)
+                expandTask(event.currentTarget)
             })
         })
 
